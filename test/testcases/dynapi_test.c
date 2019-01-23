@@ -17831,13 +17831,16 @@ static int test_POLYLINE_2D (const Dwg_Object *obj)
 
   }
   {
-    BITCODE_H vertex;
-    if (dwg_dynapi_entity_value(polyline_2d, "POLYLINE_2D", "vertex", &vertex, NULL)
-        && !memcmp(&vertex, &polyline_2d->vertex, sizeof(polyline_2d->vertex)))
-      pass ("POLYLINE_2D.vertex [H]");
+    BITCODE_H* vertex;
+    int count = 0;
+    if (dwg_dynapi_entity_value(polyline_2d, "POLYLINE_2D", "num_owned", &count, NULL) &&
+        dwg_dynapi_entity_values(polyline_2d, "POLYLINE_2D", "vertex", &vertex, count)
+        && (!count || !memcmp(&vertex, &polyline_2d->vertex, count * sizeof(polyline_2d->vertex)))
+)
+      pass ("POLYLINE_2D.vertex [H*] * %d num_owned", count);
     else
       {
-        fail ("POLYLINE_2D.vertex [H]"); error++;
+        fail ("POLYLINE_2D.vertex [H*] * %d num_owned", count); error++;
       }
   }
   return error;
@@ -17947,13 +17950,16 @@ static int test_POLYLINE_3D (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H vertex;
-    if (dwg_dynapi_entity_value(polyline_3d, "POLYLINE_3D", "vertex", &vertex, NULL)
-        && !memcmp(&vertex, &polyline_3d->vertex, sizeof(polyline_3d->vertex)))
-      pass ("POLYLINE_3D.vertex [H]");
+    BITCODE_H* vertex;
+    int count = 0;
+    if (dwg_dynapi_entity_value(polyline_3d, "POLYLINE_3D", "num_owned", &count, NULL) &&
+        dwg_dynapi_entity_values(polyline_3d, "POLYLINE_3D", "vertex", &vertex, count)
+        && (!count || !memcmp(&vertex, &polyline_3d->vertex, count * sizeof(polyline_3d->vertex)))
+)
+      pass ("POLYLINE_3D.vertex [H*] * %d num_owned", count);
     else
       {
-        fail ("POLYLINE_3D.vertex [H]"); error++;
+        fail ("POLYLINE_3D.vertex [H*] * %d num_owned", count); error++;
       }
   }
   return error;
@@ -18143,13 +18149,16 @@ static int test_POLYLINE_MESH (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H vertex;
-    if (dwg_dynapi_entity_value(polyline_mesh, "POLYLINE_MESH", "vertex", &vertex, NULL)
-        && !memcmp(&vertex, &polyline_mesh->vertex, sizeof(polyline_mesh->vertex)))
-      pass ("POLYLINE_MESH.vertex [H]");
+    BITCODE_H* vertex;
+    int count = 0;
+    if (dwg_dynapi_entity_value(polyline_mesh, "POLYLINE_MESH", "num_owned", &count, NULL) &&
+        dwg_dynapi_entity_values(polyline_mesh, "POLYLINE_MESH", "vertex", &vertex, count)
+        && (!count || !memcmp(&vertex, &polyline_mesh->vertex, count * sizeof(polyline_mesh->vertex)))
+)
+      pass ("POLYLINE_MESH.vertex [H*] * %d num_owned", count);
     else
       {
-        fail ("POLYLINE_MESH.vertex [H]"); error++;
+        fail ("POLYLINE_MESH.vertex [H*] * %d num_owned", count); error++;
       }
   }
   return error;
@@ -18259,13 +18268,16 @@ static int test_POLYLINE_PFACE (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H vertex;
-    if (dwg_dynapi_entity_value(polyline_pface, "POLYLINE_PFACE", "vertex", &vertex, NULL)
-        && !memcmp(&vertex, &polyline_pface->vertex, sizeof(polyline_pface->vertex)))
-      pass ("POLYLINE_PFACE.vertex [H]");
+    BITCODE_H* vertex;
+    int count = 0;
+    if (dwg_dynapi_entity_value(polyline_pface, "POLYLINE_PFACE", "num_owned", &count, NULL) &&
+        dwg_dynapi_entity_values(polyline_pface, "POLYLINE_PFACE", "vertex", &vertex, count)
+        && (!count || !memcmp(&vertex, &polyline_pface->vertex, count * sizeof(polyline_pface->vertex)))
+)
+      pass ("POLYLINE_PFACE.vertex [H*] * %d num_owned", count);
     else
       {
-        fail ("POLYLINE_PFACE.vertex [H]"); error++;
+        fail ("POLYLINE_PFACE.vertex [H*] * %d num_owned", count); error++;
       }
   }
   return error;
@@ -25455,13 +25467,16 @@ static int test_APPID_CONTROL (const Dwg_Object *obj)
   int error = 0;
   Dwg_Object_APPID_CONTROL *appid_control = obj->tio.object->tio.APPID_CONTROL;
   {
-    BITCODE_H apps;
-    if (dwg_dynapi_entity_value(appid_control, "APPID_CONTROL", "apps", &apps, NULL)
-        && !memcmp(&apps, &appid_control->apps, sizeof(appid_control->apps)))
-      pass ("APPID_CONTROL.apps [H]");
+    BITCODE_H* apps;
+    int count = 0;
+    if (dwg_dynapi_entity_value(appid_control, "APPID_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(appid_control, "APPID_CONTROL", "apps", &apps, count)
+        && (!count || !memcmp(&apps, &appid_control->apps, count * sizeof(appid_control->apps)))
+)
+      pass ("APPID_CONTROL.apps [H*] * %d num_entries", count);
     else
       {
-        fail ("APPID_CONTROL.apps [H]"); error++;
+        fail ("APPID_CONTROL.apps [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -25525,13 +25540,16 @@ static int test_APPID_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(appid_control, "APPID_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &appid_control->reactors, sizeof(appid_control->reactors)))
-      pass ("APPID_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(appid_control, "APPID_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(appid_control, "APPID_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &appid_control->reactors, count * sizeof(appid_control->reactors)))
+)
+      pass ("APPID_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("APPID_CONTROL.reactors [H]"); error++;
+        fail ("APPID_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
@@ -28068,13 +28086,16 @@ static int test_BLOCK_CONTROL (const Dwg_Object *obj)
   int error = 0;
   Dwg_Object_BLOCK_CONTROL *block_control = obj->tio.object->tio.BLOCK_CONTROL;
   {
-    BITCODE_H block_headers;
-    if (dwg_dynapi_entity_value(block_control, "BLOCK_CONTROL", "block_headers", &block_headers, NULL)
-        && !memcmp(&block_headers, &block_control->block_headers, sizeof(block_control->block_headers)))
-      pass ("BLOCK_CONTROL.block_headers [H]");
+    BITCODE_H* block_headers;
+    int count = 0;
+    if (dwg_dynapi_entity_value(block_control, "BLOCK_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(block_control, "BLOCK_CONTROL", "block_headers", &block_headers, count)
+        && (!count || !memcmp(&block_headers, &block_control->block_headers, count * sizeof(block_control->block_headers)))
+)
+      pass ("BLOCK_CONTROL.block_headers [H*] * %d num_entries", count);
     else
       {
-        fail ("BLOCK_CONTROL.block_headers [H]"); error++;
+        fail ("BLOCK_CONTROL.block_headers [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -28158,13 +28179,16 @@ static int test_BLOCK_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(block_control, "BLOCK_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &block_control->reactors, sizeof(block_control->reactors)))
-      pass ("BLOCK_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(block_control, "BLOCK_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(block_control, "BLOCK_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &block_control->reactors, count * sizeof(block_control->reactors)))
+)
+      pass ("BLOCK_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("BLOCK_CONTROL.reactors [H]"); error++;
+        fail ("BLOCK_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
@@ -29012,14 +29036,14 @@ static int test_DICTIONARY (const Dwg_Object *obj)
   {
     BITCODE_TV* text;
     int count = 0;
-    if (dwg_dynapi_entity_value(dictionary, "DICTIONARY", "num_text", &count, NULL) &&
+    if (dwg_dynapi_entity_value(dictionary, "DICTIONARY", "numitems", &count, NULL) &&
         dwg_dynapi_entity_values(dictionary, "DICTIONARY", "text", &text, count)
         && (!count || !memcmp(&text, &dictionary->text, count * sizeof(dictionary->text)))
 )
-      pass ("DICTIONARY.text [TV*] * %d num_text", count);
+      pass ("DICTIONARY.text [TV*] * %d numitems", count);
     else
       {
-        fail ("DICTIONARY.text [TV*] * %d num_text", count); error++;
+        fail ("DICTIONARY.text [TV*] * %d numitems", count); error++;
       }
   }
   {
@@ -29230,14 +29254,14 @@ static int test_DICTIONARYWDFLT (const Dwg_Object *obj)
   {
     BITCODE_TV* text;
     int count = 0;
-    if (dwg_dynapi_entity_value(dictionarywdflt, "DICTIONARYWDFLT", "num_text", &count, NULL) &&
+    if (dwg_dynapi_entity_value(dictionarywdflt, "DICTIONARYWDFLT", "numitems", &count, NULL) &&
         dwg_dynapi_entity_values(dictionarywdflt, "DICTIONARYWDFLT", "text", &text, count)
         && (!count || !memcmp(&text, &dictionarywdflt->text, count * sizeof(dictionarywdflt->text)))
 )
-      pass ("DICTIONARYWDFLT.text [TV*] * %d num_text", count);
+      pass ("DICTIONARYWDFLT.text [TV*] * %d numitems", count);
     else
       {
-        fail ("DICTIONARYWDFLT.text [TV*] * %d num_text", count); error++;
+        fail ("DICTIONARYWDFLT.text [TV*] * %d numitems", count); error++;
       }
   }
   return error;
@@ -31112,13 +31136,16 @@ static int test_DIMSTYLE_CONTROL (const Dwg_Object *obj)
   int error = 0;
   Dwg_Object_DIMSTYLE_CONTROL *dimstyle_control = obj->tio.object->tio.DIMSTYLE_CONTROL;
   {
-    BITCODE_H dimstyles;
-    if (dwg_dynapi_entity_value(dimstyle_control, "DIMSTYLE_CONTROL", "dimstyles", &dimstyles, NULL)
-        && !memcmp(&dimstyles, &dimstyle_control->dimstyles, sizeof(dimstyle_control->dimstyles)))
-      pass ("DIMSTYLE_CONTROL.dimstyles [H]");
+    BITCODE_H* dimstyles;
+    int count = 0;
+    if (dwg_dynapi_entity_value(dimstyle_control, "DIMSTYLE_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(dimstyle_control, "DIMSTYLE_CONTROL", "dimstyles", &dimstyles, count)
+        && (!count || !memcmp(&dimstyles, &dimstyle_control->dimstyles, count * sizeof(dimstyle_control->dimstyles)))
+)
+      pass ("DIMSTYLE_CONTROL.dimstyles [H*] * %d num_entries", count);
     else
       {
-        fail ("DIMSTYLE_CONTROL.dimstyles [H]"); error++;
+        fail ("DIMSTYLE_CONTROL.dimstyles [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -31215,13 +31242,16 @@ static int test_DIMSTYLE_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(dimstyle_control, "DIMSTYLE_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &dimstyle_control->reactors, sizeof(dimstyle_control->reactors)))
-      pass ("DIMSTYLE_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(dimstyle_control, "DIMSTYLE_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(dimstyle_control, "DIMSTYLE_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &dimstyle_control->reactors, count * sizeof(dimstyle_control->reactors)))
+)
+      pass ("DIMSTYLE_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("DIMSTYLE_CONTROL.reactors [H]"); error++;
+        fail ("DIMSTYLE_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
@@ -33132,13 +33162,16 @@ static int test_LAYER_CONTROL (const Dwg_Object *obj)
   int error = 0;
   Dwg_Object_LAYER_CONTROL *layer_control = obj->tio.object->tio.LAYER_CONTROL;
   {
-    BITCODE_H layers;
-    if (dwg_dynapi_entity_value(layer_control, "LAYER_CONTROL", "layers", &layers, NULL)
-        && !memcmp(&layers, &layer_control->layers, sizeof(layer_control->layers)))
-      pass ("LAYER_CONTROL.layers [H]");
+    BITCODE_H* layers;
+    int count = 0;
+    if (dwg_dynapi_entity_value(layer_control, "LAYER_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(layer_control, "LAYER_CONTROL", "layers", &layers, count)
+        && (!count || !memcmp(&layers, &layer_control->layers, count * sizeof(layer_control->layers)))
+)
+      pass ("LAYER_CONTROL.layers [H*] * %d num_entries", count);
     else
       {
-        fail ("LAYER_CONTROL.layers [H]"); error++;
+        fail ("LAYER_CONTROL.layers [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -33202,13 +33235,16 @@ static int test_LAYER_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(layer_control, "LAYER_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &layer_control->reactors, sizeof(layer_control->reactors)))
-      pass ("LAYER_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(layer_control, "LAYER_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(layer_control, "LAYER_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &layer_control->reactors, count * sizeof(layer_control->reactors)))
+)
+      pass ("LAYER_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("LAYER_CONTROL.reactors [H]"); error++;
+        fail ("LAYER_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
@@ -34469,13 +34505,16 @@ static int test_LTYPE_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H linetypes;
-    if (dwg_dynapi_entity_value(ltype_control, "LTYPE_CONTROL", "linetypes", &linetypes, NULL)
-        && !memcmp(&linetypes, &ltype_control->linetypes, sizeof(ltype_control->linetypes)))
-      pass ("LTYPE_CONTROL.linetypes [H]");
+    BITCODE_H* linetypes;
+    int count = 0;
+    if (dwg_dynapi_entity_value(ltype_control, "LTYPE_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(ltype_control, "LTYPE_CONTROL", "linetypes", &linetypes, count)
+        && (!count || !memcmp(&linetypes, &ltype_control->linetypes, count * sizeof(ltype_control->linetypes)))
+)
+      pass ("LTYPE_CONTROL.linetypes [H*] * %d num_entries", count);
     else
       {
-        fail ("LTYPE_CONTROL.linetypes [H]"); error++;
+        fail ("LTYPE_CONTROL.linetypes [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -34539,13 +34578,16 @@ static int test_LTYPE_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(ltype_control, "LTYPE_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &ltype_control->reactors, sizeof(ltype_control->reactors)))
-      pass ("LTYPE_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(ltype_control, "LTYPE_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(ltype_control, "LTYPE_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &ltype_control->reactors, count * sizeof(ltype_control->reactors)))
+)
+      pass ("LTYPE_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("LTYPE_CONTROL.reactors [H]"); error++;
+        fail ("LTYPE_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
@@ -38987,23 +39029,29 @@ static int test_STYLE_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(style_control, "STYLE_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &style_control->reactors, sizeof(style_control->reactors)))
-      pass ("STYLE_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(style_control, "STYLE_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(style_control, "STYLE_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &style_control->reactors, count * sizeof(style_control->reactors)))
+)
+      pass ("STYLE_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("STYLE_CONTROL.reactors [H]"); error++;
+        fail ("STYLE_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
-    BITCODE_H styles;
-    if (dwg_dynapi_entity_value(style_control, "STYLE_CONTROL", "styles", &styles, NULL)
-        && !memcmp(&styles, &style_control->styles, sizeof(style_control->styles)))
-      pass ("STYLE_CONTROL.styles [H]");
+    BITCODE_H* styles;
+    int count = 0;
+    if (dwg_dynapi_entity_value(style_control, "STYLE_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(style_control, "STYLE_CONTROL", "styles", &styles, count)
+        && (!count || !memcmp(&styles, &style_control->styles, count * sizeof(style_control->styles)))
+)
+      pass ("STYLE_CONTROL.styles [H*] * %d num_entries", count);
     else
       {
-        fail ("STYLE_CONTROL.styles [H]"); error++;
+        fail ("STYLE_CONTROL.styles [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -40421,23 +40469,29 @@ static int test_UCS_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(ucs_control, "UCS_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &ucs_control->reactors, sizeof(ucs_control->reactors)))
-      pass ("UCS_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(ucs_control, "UCS_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(ucs_control, "UCS_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &ucs_control->reactors, count * sizeof(ucs_control->reactors)))
+)
+      pass ("UCS_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("UCS_CONTROL.reactors [H]"); error++;
+        fail ("UCS_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
-    BITCODE_H ucs;
-    if (dwg_dynapi_entity_value(ucs_control, "UCS_CONTROL", "ucs", &ucs, NULL)
-        && !memcmp(&ucs, &ucs_control->ucs, sizeof(ucs_control->ucs)))
-      pass ("UCS_CONTROL.ucs [H]");
+    BITCODE_H* ucs;
+    int count = 0;
+    if (dwg_dynapi_entity_value(ucs_control, "UCS_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(ucs_control, "UCS_CONTROL", "ucs", &ucs, count)
+        && (!count || !memcmp(&ucs, &ucs_control->ucs, count * sizeof(ucs_control->ucs)))
+)
+      pass ("UCS_CONTROL.ucs [H*] * %d num_entries", count);
     else
       {
-        fail ("UCS_CONTROL.ucs [H]"); error++;
+        fail ("UCS_CONTROL.ucs [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -41250,23 +41304,29 @@ static int test_VIEW_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(view_control, "VIEW_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &view_control->reactors, sizeof(view_control->reactors)))
-      pass ("VIEW_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(view_control, "VIEW_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(view_control, "VIEW_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &view_control->reactors, count * sizeof(view_control->reactors)))
+)
+      pass ("VIEW_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("VIEW_CONTROL.reactors [H]"); error++;
+        fail ("VIEW_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
-    BITCODE_H views;
-    if (dwg_dynapi_entity_value(view_control, "VIEW_CONTROL", "views", &views, NULL)
-        && !memcmp(&views, &view_control->views, sizeof(view_control->views)))
-      pass ("VIEW_CONTROL.views [H]");
+    BITCODE_H* views;
+    int count = 0;
+    if (dwg_dynapi_entity_value(view_control, "VIEW_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(view_control, "VIEW_CONTROL", "views", &views, count)
+        && (!count || !memcmp(&views, &view_control->views, count * sizeof(view_control->views)))
+)
+      pass ("VIEW_CONTROL.views [H*] * %d num_entries", count);
     else
       {
-        fail ("VIEW_CONTROL.views [H]"); error++;
+        fail ("VIEW_CONTROL.views [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -42837,23 +42897,29 @@ static int test_VPORT_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(vport_control, "VPORT_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &vport_control->reactors, sizeof(vport_control->reactors)))
-      pass ("VPORT_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(vport_control, "VPORT_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(vport_control, "VPORT_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &vport_control->reactors, count * sizeof(vport_control->reactors)))
+)
+      pass ("VPORT_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("VPORT_CONTROL.reactors [H]"); error++;
+        fail ("VPORT_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
-    BITCODE_H vports;
-    if (dwg_dynapi_entity_value(vport_control, "VPORT_CONTROL", "vports", &vports, NULL)
-        && !memcmp(&vports, &vport_control->vports, sizeof(vport_control->vports)))
-      pass ("VPORT_CONTROL.vports [H]");
+    BITCODE_H* vports;
+    int count = 0;
+    if (dwg_dynapi_entity_value(vport_control, "VPORT_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(vport_control, "VPORT_CONTROL", "vports", &vports, count)
+        && (!count || !memcmp(&vports, &vport_control->vports, count * sizeof(vport_control->vports)))
+)
+      pass ("VPORT_CONTROL.vports [H*] * %d num_entries", count);
     else
       {
-        fail ("VPORT_CONTROL.vports [H]"); error++;
+        fail ("VPORT_CONTROL.vports [H*] * %d num_entries", count); error++;
       }
   }
   {
@@ -42933,23 +42999,29 @@ static int test_VPORT_ENTITY_CONTROL (const Dwg_Object *obj)
       }
   }
   {
-    BITCODE_H reactors;
-    if (dwg_dynapi_entity_value(vport_entity_control, "VPORT_ENTITY_CONTROL", "reactors", &reactors, NULL)
-        && !memcmp(&reactors, &vport_entity_control->reactors, sizeof(vport_entity_control->reactors)))
-      pass ("VPORT_ENTITY_CONTROL.reactors [H]");
+    BITCODE_H* reactors;
+    int count = 0;
+    if (dwg_dynapi_entity_value(vport_entity_control, "VPORT_ENTITY_CONTROL", "num_reactors", &count, NULL) &&
+        dwg_dynapi_entity_values(vport_entity_control, "VPORT_ENTITY_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(&reactors, &vport_entity_control->reactors, count * sizeof(vport_entity_control->reactors)))
+)
+      pass ("VPORT_ENTITY_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
-        fail ("VPORT_ENTITY_CONTROL.reactors [H]"); error++;
+        fail ("VPORT_ENTITY_CONTROL.reactors [H*] * %d num_reactors", count); error++;
       }
   }
   {
-    BITCODE_H vport_entity_headers;
-    if (dwg_dynapi_entity_value(vport_entity_control, "VPORT_ENTITY_CONTROL", "vport_entity_headers", &vport_entity_headers, NULL)
-        && !memcmp(&vport_entity_headers, &vport_entity_control->vport_entity_headers, sizeof(vport_entity_control->vport_entity_headers)))
-      pass ("VPORT_ENTITY_CONTROL.vport_entity_headers [H]");
+    BITCODE_H* vport_entity_headers;
+    int count = 0;
+    if (dwg_dynapi_entity_value(vport_entity_control, "VPORT_ENTITY_CONTROL", "num_entries", &count, NULL) &&
+        dwg_dynapi_entity_values(vport_entity_control, "VPORT_ENTITY_CONTROL", "vport_entity_headers", &vport_entity_headers, count)
+        && (!count || !memcmp(&vport_entity_headers, &vport_entity_control->vport_entity_headers, count * sizeof(vport_entity_control->vport_entity_headers)))
+)
+      pass ("VPORT_ENTITY_CONTROL.vport_entity_headers [H*] * %d num_entries", count);
     else
       {
-        fail ("VPORT_ENTITY_CONTROL.vport_entity_headers [H]"); error++;
+        fail ("VPORT_ENTITY_CONTROL.vport_entity_headers [H*] * %d num_entries", count); error++;
       }
   }
   {
