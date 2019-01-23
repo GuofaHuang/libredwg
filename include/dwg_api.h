@@ -81,23 +81,65 @@ typedef struct dwg_field_name_type_offset {
   const short dxf;
 } Dwg_DYNAPI_field;
 
+/** Check if the name is a valid ENTITY name, not an OBJECT.
+ */
 EXPORT bool
 is_dwg_entity(const char* dxfname);
+
+/** Check if the name is a valid OBJECT name, not an ENTITY.
+ */
 EXPORT bool
 is_dwg_object(const char* dxfname);
+
+/** Returns the HEADER.fieldname value in out.
+    The optional Dwg_DYNAPI_field *fp is filled with the field types from dynapi.c
+ */
+EXPORT bool
+dwg_dynapi_header_value(const Dwg_Data *restrict dwg, const char *restrict fieldname,
+                        void *restrict out, Dwg_DYNAPI_field *restrict fp);
+
+/** Returns the ENTITY|OBJECT.fieldname value in out.
+    entity is the Dwg_Entity_ENTITY or Dwg_Object_OBJECT struct with the specific fields.
+    The optional Dwg_DYNAPI_field *fp is filled with the field types from dynapi.c
+ */
 EXPORT bool
 dwg_dynapi_entity_value(void *restrict entity, const char *restrict dxfname,
                         const char *restrict fieldname, void *restrict out,
                         Dwg_DYNAPI_field *restrict fp);
+/** Returns count * ENTITY|OBJECT.fieldname values in out, for dynamic arrays.
+    entity is the Dwg_Entity_ENTITY or Dwg_Object_OBJECT struct with the specific fields.
+ */
 EXPORT bool
-dwg_dynapi_header_value(const Dwg_Data *restrict dwg, const char *restrict fieldname,
-                        void *restrict out, Dwg_DYNAPI_field *restrict fp);
-EXPORT bool
-dwg_dynapi_entity_set_value(void *restrict entity, const char *restrict dxfname,
-                            const char *restrict fieldname, const void *restrict value);
+dwg_dynapi_entity_values(void *restrict entity, const char *restrict dxfname,
+                        const char *restrict fieldname, void *restrict out,
+                        const int count);
+
+/** Sets the HEADER.fieldname to a value.
+    A malloc'ed struct or string is passed by ptr, not by the content.
+    A non-malloc'ed struct is set by content.
+ */
 EXPORT bool
 dwg_dynapi_header_set_value(const Dwg_Data *restrict dwg, const char *restrict fieldname,
                             const void *restrict value);
+
+/** Sets the ENTITY.fieldname to a value.
+    A malloc'ed struct is passed by ptr, not by the content.
+    A non-malloc'ed struct is set by content.
+    A string creates a fresh malloc'd field.
+    A dynamic array needs to be set via `dwg_dynapi_entity_set_values`.
+ */
+EXPORT bool
+dwg_dynapi_entity_set_value(void *restrict entity, const char *restrict dxfname,
+                            const char *restrict fieldname, const void *restrict value);
+
+/** Sets ENTITY.fieldname to the value's, with the size of count * f->size.
+    A malloc'ed struct or string is passed by ptr, not by the content.
+    A non-malloc'ed struct is set by content.
+ */
+EXPORT bool
+dwg_dynapi_entity_set_values(void *restrict entity, const char *restrict dxfname,
+                             const char *restrict fieldname,
+                             const void *restrict value, const int count);
 
 /* static api */
 typedef struct dwg_point_3d
