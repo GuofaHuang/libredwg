@@ -106,6 +106,7 @@ EXPORT bool
 dwg_dynapi_entity_value(void *restrict entity, const char *restrict dxfname,
                         const char *restrict fieldname, void *restrict out,
                         Dwg_DYNAPI_field *restrict fp);
+
 /** Returns count * ENTITY|OBJECT.fieldname values in out, for dynamic arrays.
     entity is the Dwg_Entity_ENTITY or Dwg_Object_OBJECT struct with the specific fields.
  */
