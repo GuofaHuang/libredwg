@@ -3738,7 +3738,6 @@ const Dwg_DYNAPI_field _dwg_TABLE_cell_fields[] = {
   { "text_string", "TV", sizeof(BITCODE_TV), OFF(struct _dwg_TABLE_cell,text_string), 1,1,1, /*DXF:*/ 0 },
   { "block_scale", "BD", sizeof(BITCODE_BD), OFF(struct _dwg_TABLE_cell,block_scale), 0,0,0, /*DXF:*/ 0 },
   { "additional_data_flag", "B", sizeof(BITCODE_B), OFF(struct _dwg_TABLE_cell,additional_data_flag), 0,0,0, /*DXF:*/ 0 },
-  { "num_attr_defs", "BS", sizeof(BITCODE_BS), OFF(struct _dwg_TABLE_cell,num_attr_defs), 0,0,0, /*DXF:*/ 0 },
   { "attr_def_index", "BS", sizeof(BITCODE_BS), OFF(struct _dwg_TABLE_cell,attr_def_index), 0,0,0, /*DXF:*/ 0 },
   { "attr_def_text", "TV", sizeof(BITCODE_TV), OFF(struct _dwg_TABLE_cell,attr_def_text), 1,1,1, /*DXF:*/ 0 },
   { "additional_data_flag2", "B", sizeof(BITCODE_B), OFF(struct _dwg_TABLE_cell,additional_data_flag2), 0,0,0, /*DXF:*/ 0 },
@@ -3765,6 +3764,7 @@ const Dwg_DYNAPI_field _dwg_TABLE_cell_fields[] = {
   { "unknown", "BL", sizeof(BITCODE_BL), OFF(struct _dwg_TABLE_cell,unknown), 0,0,0, /*DXF:*/ 0 },
   { "value", "Dwg_TABLE_value", sizeof(Dwg_TABLE_value), OFF(struct _dwg_TABLE_cell,value), 0,0,0, /*DXF:*/ 0 },
   { "cell_handle", "H", sizeof(BITCODE_H), OFF(struct _dwg_TABLE_cell,cell_handle), 1,0,0, /*DXF:*/ 0 },
+  { "num_attr_defs", "BS", sizeof(BITCODE_BS), OFF(struct _dwg_TABLE_cell,num_attr_defs), 0,0,0, /*DXF:*/ 0 },
   { "attr_def_id", "H*", sizeof(BITCODE_H*), OFF(struct _dwg_TABLE_cell,attr_def_id), 1,1,0, /*DXF:*/ 0 },
   { "text_style_override", "H", sizeof(BITCODE_H), OFF(struct _dwg_TABLE_cell,text_style_override), 1,0,0, /*DXF:*/ 0 },
   { "parent", "struct _dwg_entity_TABLE*", sizeof(void*), OFF(struct _dwg_TABLE_cell,parent), 1,1,0, /*DXF:*/ 0 },
@@ -4070,6 +4070,8 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
 {
   if (!_obj)
     return false;
+  if (!count)
+    return true;
   {
     int error;
     // check the object type
@@ -4090,14 +4092,12 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
           LOG_ERROR("%s: Invalid %s field %s", __FUNCTION__, name, fieldname);
           return false;
         }
-      //TODO: if (f->malloc)
-      //  which size? if text strcpy. if TU wcscpy. if struct num_fieldname * f->size
       memcpy(out, &((char*)_obj)[f->offset], count * f->size);
       return true;
     }
   }
 }
- 
+
 EXPORT bool
 dwg_dynapi_header_value(const Dwg_Data *restrict dwg, const char *restrict fieldname,
                         void *restrict out, Dwg_DYNAPI_field *restrict fp)
@@ -4198,6 +4198,8 @@ dwg_dynapi_entity_set_values(void *restrict _obj, const char *restrict name,
 {
   if (!_obj)
     return false;
+  if (!count)
+    return true;
   {
     int error;
     const Dwg_Object* obj = dwg_obj_generic_to_object(_obj, &error);

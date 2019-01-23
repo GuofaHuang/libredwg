@@ -437,6 +437,57 @@ EOF
         print $fh "    $lname->$svar--;\n";
       }
       print $fh "\n  }\n";
+    } elsif ($type =~ /\*$/ and $type !~ /(RC\*|struct _dwg_object_)/) { # array
+      my %countfield = (
+        attrib_handles => 'num_owned',
+        attribs => 'num_owned', # XXX TABLE
+        vertex => 'num_owned',
+        itemhandles => 'numitems',
+        entities => 'num_owned',
+        insert_handles => 'num_inserts',
+        group_entries => 'num_handles',
+        field_handles => 'num_fields',
+        sort_handles => 'num_ents',
+        attr_def_id => 'num_attr_defs',
+        readdeps  => 'num_deps',
+        writedeps => 'num_deps',
+
+        text => 'numitems',
+
+        block_headers => 'num_entries',
+        layers => 'num_entries',
+        styles => 'num_entries',
+        linetypes => 'num_entries',
+        views => 'num_entries',
+        ucs => 'num_entries',
+        vports => 'num_entries',
+        apps => 'num_entries',
+        dimstyles => 'num_entries',
+        vport_entity_headers => 'num_entries',
+        entry_handles => 'num_entries',
+        );
+      my $countfield = exists $countfield{$var} ? $countfield{$var} : "num_$var";
+      $countfield = 'num_dashes' if $name eq 'LTYPE' and $var eq 'styles';
+      my $count = 1;
+      print $fh <<"EOF";
+  {
+    $type $var;
+    int count = 0;
+    if (dwg_dynapi_entity_value($lname, "$name", "$countfield", &count, NULL) &&
+        dwg_dynapi_entity_values($lname, "$name", "$var", &$svar, count)
+EOF
+        if ($type !~ /\*\*/) {
+          print $fh "        && (!count || !memcmp(&$svar, &$lname->$svar, count * sizeof($lname->$svar)))\n";
+        }
+        print $fh ")\n";
+        print $fh <<"EOF";
+      pass ("$name.$var [$stype] * %d $countfield", count);
+    else
+      {
+        fail ("$name.$var [$stype] * %d $countfield", count); error++;
+      }
+  }
+EOF
     } else { # is_ptr
       print $fh <<"EOF";
   {
@@ -660,6 +711,8 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
 {
   if (!_obj)
     return false;
+  if (!count)
+    return true;
   {
     int error;
     // check the object type
@@ -680,14 +733,12 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
           LOG_ERROR("%s: Invalid %s field %s", __FUNCTION__, name, fieldname);
           return false;
         }
-      //TODO: if (f->malloc)
-      //  which size? if text strcpy. if TU wcscpy. if struct num_fieldname * f->size
       memcpy(out, &((char*)_obj)[f->offset], count * f->size);
       return true;
     }
   }
 }
- 
+
 EXPORT bool
 dwg_dynapi_header_value(const Dwg_Data *restrict dwg, const char *restrict fieldname,
                         void *restrict out, Dwg_DYNAPI_field *restrict fp)
@@ -788,6 +839,8 @@ dwg_dynapi_entity_set_values(void *restrict _obj, const char *restrict name,
 {
   if (!_obj)
     return false;
+  if (!count)
+    return true;
   {
     int error;
     const Dwg_Object* obj = dwg_obj_generic_to_object(_obj, &error);
