@@ -3956,6 +3956,7 @@ const struct _name_type_fields dwg_name_types[] = {
 
 };
 
+//#line 639 "gen-dynapi.pl"
 static int
 _name_inl_cmp (const void *restrict key, const void *restrict elem)
 {
@@ -4084,6 +4085,7 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
       }
     {
       const Dwg_DYNAPI_field* f = dwg_dynapi_entity_field(name, fieldname);
+      char **in;
       if (!f)
         {
           int loglevel;
@@ -4092,7 +4094,8 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
           LOG_ERROR("%s: Invalid %s field %s", __FUNCTION__, name, fieldname);
           return false;
         }
-      memcpy(out, &((char*)_obj)[f->offset], count * f->size);
+      // just copy the array ptr
+      memcpy(out, &((char*)_obj)[f->offset], f->size);
       return true;
     }
   }
@@ -4227,7 +4230,10 @@ dwg_dynapi_entity_set_values(void *restrict _obj, const char *restrict name,
                     count, fieldname);
           return false;
         }
-      memcpy(&((char*)_obj)[f->offset], value, count * f->size);
+      if (value != NULL)
+        memcpy(&((char*)_obj)[f->offset], value, f->size);
+      else
+        memset(&((char*)_obj)[f->offset], 0, sizeof(void*));
       return true;
     }
   }

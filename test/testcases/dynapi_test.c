@@ -6313,7 +6313,7 @@ static int test__3DSOLID (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(_3dsolid, "3DSOLID", "num_block_size", &count, NULL) &&
         dwg_dynapi_entity_values(_3dsolid, "3DSOLID", "block_size", &block_size, count)
-        && (!count || !memcmp(&block_size, &_3dsolid->block_size, count * sizeof(_3dsolid->block_size)))
+        && (!count || !memcmp(block_size, _3dsolid->block_size, count * sizeof(_3dsolid->block_size)))
 )
       pass ("3DSOLID.block_size [BL*] * %d num_block_size", count);
     else
@@ -6336,7 +6336,7 @@ static int test__3DSOLID (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(_3dsolid, "3DSOLID", "num_extra_acis_data", &count, NULL) &&
         dwg_dynapi_entity_values(_3dsolid, "3DSOLID", "extra_acis_data", &extra_acis_data, count)
-        && (!count || !memcmp(&extra_acis_data, &_3dsolid->extra_acis_data, count * sizeof(_3dsolid->extra_acis_data)))
+        && (!count || !memcmp(extra_acis_data, _3dsolid->extra_acis_data, count * sizeof(_3dsolid->extra_acis_data)))
 )
       pass ("3DSOLID.extra_acis_data [struct _dwg_entity_3DSOLID*] * %d num_extra_acis_data", count);
     else
@@ -6499,7 +6499,7 @@ static int test__3DSOLID (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(_3dsolid, "3DSOLID", "num_silhouettes", &count, NULL) &&
         dwg_dynapi_entity_values(_3dsolid, "3DSOLID", "silhouettes", &silhouettes, count)
-        && (!count || !memcmp(&silhouettes, &_3dsolid->silhouettes, count * sizeof(_3dsolid->silhouettes)))
+        && (!count || !memcmp(silhouettes, _3dsolid->silhouettes, count * sizeof(_3dsolid->silhouettes)))
 )
       pass ("3DSOLID.silhouettes [Dwg_3DSOLID_silhouette*] * %d num_silhouettes", count);
     else
@@ -6592,7 +6592,7 @@ static int test__3DSOLID (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(_3dsolid, "3DSOLID", "num_wires", &count, NULL) &&
         dwg_dynapi_entity_values(_3dsolid, "3DSOLID", "wires", &wires, count)
-        && (!count || !memcmp(&wires, &_3dsolid->wires, count * sizeof(_3dsolid->wires)))
+        && (!count || !memcmp(wires, _3dsolid->wires, count * sizeof(_3dsolid->wires)))
 )
       pass ("3DSOLID.wires [Dwg_3DSOLID_wire*] * %d num_wires", count);
     else
@@ -10929,7 +10929,7 @@ static int test_EXTRUDEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(extrudedsurface, "EXTRUDEDSURFACE", "num_block_size", &count, NULL) &&
         dwg_dynapi_entity_values(extrudedsurface, "EXTRUDEDSURFACE", "block_size", &block_size, count)
-        && (!count || !memcmp(&block_size, &extrudedsurface->block_size, count * sizeof(extrudedsurface->block_size)))
+        && (!count || !memcmp(block_size, extrudedsurface->block_size, count * sizeof(extrudedsurface->block_size)))
 )
       pass ("EXTRUDEDSURFACE.block_size [BL*] * %d num_block_size", count);
     else
@@ -11032,7 +11032,7 @@ static int test_EXTRUDEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(extrudedsurface, "EXTRUDEDSURFACE", "num_extra_acis_data", &count, NULL) &&
         dwg_dynapi_entity_values(extrudedsurface, "EXTRUDEDSURFACE", "extra_acis_data", &extra_acis_data, count)
-        && (!count || !memcmp(&extra_acis_data, &extrudedsurface->extra_acis_data, count * sizeof(extrudedsurface->extra_acis_data)))
+        && (!count || !memcmp(extra_acis_data, extrudedsurface->extra_acis_data, count * sizeof(extrudedsurface->extra_acis_data)))
 )
       pass ("EXTRUDEDSURFACE.extra_acis_data [struct _dwg_entity_3DSOLID*] * %d num_extra_acis_data", count);
     else
@@ -11235,7 +11235,7 @@ static int test_EXTRUDEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(extrudedsurface, "EXTRUDEDSURFACE", "num_path_entity_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(extrudedsurface, "EXTRUDEDSURFACE", "path_entity_transmatrix", &path_entity_transmatrix, count)
-        && (!count || !memcmp(&path_entity_transmatrix, &extrudedsurface->path_entity_transmatrix, count * sizeof(extrudedsurface->path_entity_transmatrix)))
+        && (!count || !memcmp(path_entity_transmatrix, extrudedsurface->path_entity_transmatrix, count * sizeof(extrudedsurface->path_entity_transmatrix)))
 )
       pass ("EXTRUDEDSURFACE.path_entity_transmatrix [BD*] * %d num_path_entity_transmatrix", count);
     else
@@ -11308,7 +11308,7 @@ static int test_EXTRUDEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(extrudedsurface, "EXTRUDEDSURFACE", "num_silhouettes", &count, NULL) &&
         dwg_dynapi_entity_values(extrudedsurface, "EXTRUDEDSURFACE", "silhouettes", &silhouettes, count)
-        && (!count || !memcmp(&silhouettes, &extrudedsurface->silhouettes, count * sizeof(extrudedsurface->silhouettes)))
+        && (!count || !memcmp(silhouettes, extrudedsurface->silhouettes, count * sizeof(extrudedsurface->silhouettes)))
 )
       pass ("EXTRUDEDSURFACE.silhouettes [Dwg_3DSOLID_silhouette*] * %d num_silhouettes", count);
     else
@@ -11411,7 +11411,7 @@ static int test_EXTRUDEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(extrudedsurface, "EXTRUDEDSURFACE", "num_sweep_entity_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(extrudedsurface, "EXTRUDEDSURFACE", "sweep_entity_transmatrix", &sweep_entity_transmatrix, count)
-        && (!count || !memcmp(&sweep_entity_transmatrix, &extrudedsurface->sweep_entity_transmatrix, count * sizeof(extrudedsurface->sweep_entity_transmatrix)))
+        && (!count || !memcmp(sweep_entity_transmatrix, extrudedsurface->sweep_entity_transmatrix, count * sizeof(extrudedsurface->sweep_entity_transmatrix)))
 )
       pass ("EXTRUDEDSURFACE.sweep_entity_transmatrix [BD*] * %d num_sweep_entity_transmatrix", count);
     else
@@ -11424,7 +11424,7 @@ static int test_EXTRUDEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(extrudedsurface, "EXTRUDEDSURFACE", "num_sweep_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(extrudedsurface, "EXTRUDEDSURFACE", "sweep_transmatrix", &sweep_transmatrix, count)
-        && (!count || !memcmp(&sweep_transmatrix, &extrudedsurface->sweep_transmatrix, count * sizeof(extrudedsurface->sweep_transmatrix)))
+        && (!count || !memcmp(sweep_transmatrix, extrudedsurface->sweep_transmatrix, count * sizeof(extrudedsurface->sweep_transmatrix)))
 )
       pass ("EXTRUDEDSURFACE.sweep_transmatrix [BD*] * %d num_sweep_transmatrix", count);
     else
@@ -11587,7 +11587,7 @@ static int test_EXTRUDEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(extrudedsurface, "EXTRUDEDSURFACE", "num_wires", &count, NULL) &&
         dwg_dynapi_entity_values(extrudedsurface, "EXTRUDEDSURFACE", "wires", &wires, count)
-        && (!count || !memcmp(&wires, &extrudedsurface->wires, count * sizeof(extrudedsurface->wires)))
+        && (!count || !memcmp(wires, extrudedsurface->wires, count * sizeof(extrudedsurface->wires)))
 )
       pass ("EXTRUDEDSURFACE.wires [Dwg_3DSOLID_wire*] * %d num_wires", count);
     else
@@ -11842,7 +11842,7 @@ static int test_HATCH (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(hatch, "HATCH", "num_boundary_handles", &count, NULL) &&
         dwg_dynapi_entity_values(hatch, "HATCH", "boundary_handles", &boundary_handles, count)
-        && (!count || !memcmp(&boundary_handles, &hatch->boundary_handles, count * sizeof(hatch->boundary_handles)))
+        && (!count || !memcmp(boundary_handles, hatch->boundary_handles, count * sizeof(hatch->boundary_handles)))
 )
       pass ("HATCH.boundary_handles [H*] * %d num_boundary_handles", count);
     else
@@ -11855,7 +11855,7 @@ static int test_HATCH (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(hatch, "HATCH", "num_colors", &count, NULL) &&
         dwg_dynapi_entity_values(hatch, "HATCH", "colors", &colors, count)
-        && (!count || !memcmp(&colors, &hatch->colors, count * sizeof(hatch->colors)))
+        && (!count || !memcmp(colors, hatch->colors, count * sizeof(hatch->colors)))
 )
       pass ("HATCH.colors [Dwg_HATCH_Color*] * %d num_colors", count);
     else
@@ -11868,7 +11868,7 @@ static int test_HATCH (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(hatch, "HATCH", "num_deflines", &count, NULL) &&
         dwg_dynapi_entity_values(hatch, "HATCH", "deflines", &deflines, count)
-        && (!count || !memcmp(&deflines, &hatch->deflines, count * sizeof(hatch->deflines)))
+        && (!count || !memcmp(deflines, hatch->deflines, count * sizeof(hatch->deflines)))
 )
       pass ("HATCH.deflines [Dwg_HATCH_DefLine*] * %d num_deflines", count);
     else
@@ -12161,7 +12161,7 @@ static int test_HATCH (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(hatch, "HATCH", "num_paths", &count, NULL) &&
         dwg_dynapi_entity_values(hatch, "HATCH", "paths", &paths, count)
-        && (!count || !memcmp(&paths, &hatch->paths, count * sizeof(hatch->paths)))
+        && (!count || !memcmp(paths, hatch->paths, count * sizeof(hatch->paths)))
 )
       pass ("HATCH.paths [Dwg_HATCH_Path*] * %d num_paths", count);
     else
@@ -12400,7 +12400,7 @@ static int test_HELIX (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(helix, "HELIX", "num_ctrl_pts", &count, NULL) &&
         dwg_dynapi_entity_values(helix, "HELIX", "ctrl_pts", &ctrl_pts, count)
-        && (!count || !memcmp(&ctrl_pts, &helix->ctrl_pts, count * sizeof(helix->ctrl_pts)))
+        && (!count || !memcmp(ctrl_pts, helix->ctrl_pts, count * sizeof(helix->ctrl_pts)))
 )
       pass ("HELIX.ctrl_pts [Dwg_SPLINE_control_point*] * %d num_ctrl_pts", count);
     else
@@ -12463,7 +12463,7 @@ static int test_HELIX (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(helix, "HELIX", "num_fit_pts", &count, NULL) &&
         dwg_dynapi_entity_values(helix, "HELIX", "fit_pts", &fit_pts, count)
-        && (!count || !memcmp(&fit_pts, &helix->fit_pts, count * sizeof(helix->fit_pts)))
+        && (!count || !memcmp(fit_pts, helix->fit_pts, count * sizeof(helix->fit_pts)))
 )
       pass ("HELIX.fit_pts [Dwg_SPLINE_point*] * %d num_fit_pts", count);
     else
@@ -12576,7 +12576,7 @@ static int test_HELIX (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(helix, "HELIX", "num_knots", &count, NULL) &&
         dwg_dynapi_entity_values(helix, "HELIX", "knots", &knots, count)
-        && (!count || !memcmp(&knots, &helix->knots, count * sizeof(helix->knots)))
+        && (!count || !memcmp(knots, helix->knots, count * sizeof(helix->knots)))
 )
       pass ("HELIX.knots [BD*] * %d num_knots", count);
     else
@@ -12975,7 +12975,7 @@ static int test_IMAGE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(image, "IMAGE", "num_clip_verts", &count, NULL) &&
         dwg_dynapi_entity_values(image, "IMAGE", "clip_verts", &clip_verts, count)
-        && (!count || !memcmp(&clip_verts, &image->clip_verts, count * sizeof(image->clip_verts)))
+        && (!count || !memcmp(clip_verts, image->clip_verts, count * sizeof(image->clip_verts)))
 )
       pass ("IMAGE.clip_verts [2RD*] * %d num_clip_verts", count);
     else
@@ -13164,7 +13164,7 @@ static int test_INSERT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(insert, "INSERT", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(insert, "INSERT", "attrib_handles", &attrib_handles, count)
-        && (!count || !memcmp(&attrib_handles, &insert->attrib_handles, count * sizeof(insert->attrib_handles)))
+        && (!count || !memcmp(attrib_handles, insert->attrib_handles, count * sizeof(insert->attrib_handles)))
 )
       pass ("INSERT.attrib_handles [H*] * %d num_owned", count);
     else
@@ -13653,7 +13653,7 @@ static int test_LEADER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(leader, "LEADER", "num_points", &count, NULL) &&
         dwg_dynapi_entity_values(leader, "LEADER", "points", &points, count)
-        && (!count || !memcmp(&points, &leader->points, count * sizeof(leader->points)))
+        && (!count || !memcmp(points, leader->points, count * sizeof(leader->points)))
 )
       pass ("LEADER.points [3DPOINT*] * %d num_points", count);
     else
@@ -14343,7 +14343,7 @@ static int test_LOFTEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(loftedsurface, "LOFTEDSURFACE", "num_block_size", &count, NULL) &&
         dwg_dynapi_entity_values(loftedsurface, "LOFTEDSURFACE", "block_size", &block_size, count)
-        && (!count || !memcmp(&block_size, &loftedsurface->block_size, count * sizeof(loftedsurface->block_size)))
+        && (!count || !memcmp(block_size, loftedsurface->block_size, count * sizeof(loftedsurface->block_size)))
 )
       pass ("LOFTEDSURFACE.block_size [BL*] * %d num_block_size", count);
     else
@@ -14436,7 +14436,7 @@ static int test_LOFTEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(loftedsurface, "LOFTEDSURFACE", "num_extra_acis_data", &count, NULL) &&
         dwg_dynapi_entity_values(loftedsurface, "LOFTEDSURFACE", "extra_acis_data", &extra_acis_data, count)
-        && (!count || !memcmp(&extra_acis_data, &loftedsurface->extra_acis_data, count * sizeof(loftedsurface->extra_acis_data)))
+        && (!count || !memcmp(extra_acis_data, loftedsurface->extra_acis_data, count * sizeof(loftedsurface->extra_acis_data)))
 )
       pass ("LOFTEDSURFACE.extra_acis_data [struct _dwg_entity_3DSOLID*] * %d num_extra_acis_data", count);
     else
@@ -14489,7 +14489,7 @@ static int test_LOFTEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(loftedsurface, "LOFTEDSURFACE", "num_loft_entity_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(loftedsurface, "LOFTEDSURFACE", "loft_entity_transmatrix", &loft_entity_transmatrix, count)
-        && (!count || !memcmp(&loft_entity_transmatrix, &loftedsurface->loft_entity_transmatrix, count * sizeof(loftedsurface->loft_entity_transmatrix)))
+        && (!count || !memcmp(loft_entity_transmatrix, loftedsurface->loft_entity_transmatrix, count * sizeof(loftedsurface->loft_entity_transmatrix)))
 )
       pass ("LOFTEDSURFACE.loft_entity_transmatrix [BD*] * %d num_loft_entity_transmatrix", count);
     else
@@ -14752,7 +14752,7 @@ static int test_LOFTEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(loftedsurface, "LOFTEDSURFACE", "num_silhouettes", &count, NULL) &&
         dwg_dynapi_entity_values(loftedsurface, "LOFTEDSURFACE", "silhouettes", &silhouettes, count)
-        && (!count || !memcmp(&silhouettes, &loftedsurface->silhouettes, count * sizeof(loftedsurface->silhouettes)))
+        && (!count || !memcmp(silhouettes, loftedsurface->silhouettes, count * sizeof(loftedsurface->silhouettes)))
 )
       pass ("LOFTEDSURFACE.silhouettes [Dwg_3DSOLID_silhouette*] * %d num_silhouettes", count);
     else
@@ -14985,7 +14985,7 @@ static int test_LOFTEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(loftedsurface, "LOFTEDSURFACE", "num_wires", &count, NULL) &&
         dwg_dynapi_entity_values(loftedsurface, "LOFTEDSURFACE", "wires", &wires, count)
-        && (!count || !memcmp(&wires, &loftedsurface->wires, count * sizeof(loftedsurface->wires)))
+        && (!count || !memcmp(wires, loftedsurface->wires, count * sizeof(loftedsurface->wires)))
 )
       pass ("LOFTEDSURFACE.wires [Dwg_3DSOLID_wire*] * %d num_wires", count);
     else
@@ -15004,7 +15004,7 @@ static int test_LWPOLYLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(lwpolyline, "LWPOLYLINE", "num_bulges", &count, NULL) &&
         dwg_dynapi_entity_values(lwpolyline, "LWPOLYLINE", "bulges", &bulges, count)
-        && (!count || !memcmp(&bulges, &lwpolyline->bulges, count * sizeof(lwpolyline->bulges)))
+        && (!count || !memcmp(bulges, lwpolyline->bulges, count * sizeof(lwpolyline->bulges)))
 )
       pass ("LWPOLYLINE.bulges [BD*] * %d num_bulges", count);
     else
@@ -15177,7 +15177,7 @@ static int test_LWPOLYLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(lwpolyline, "LWPOLYLINE", "num_points", &count, NULL) &&
         dwg_dynapi_entity_values(lwpolyline, "LWPOLYLINE", "points", &points, count)
-        && (!count || !memcmp(&points, &lwpolyline->points, count * sizeof(lwpolyline->points)))
+        && (!count || !memcmp(points, lwpolyline->points, count * sizeof(lwpolyline->points)))
 )
       pass ("LWPOLYLINE.points [2RD*] * %d num_points", count);
     else
@@ -15210,7 +15210,7 @@ static int test_LWPOLYLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(lwpolyline, "LWPOLYLINE", "num_vertexids", &count, NULL) &&
         dwg_dynapi_entity_values(lwpolyline, "LWPOLYLINE", "vertexids", &vertexids, count)
-        && (!count || !memcmp(&vertexids, &lwpolyline->vertexids, count * sizeof(lwpolyline->vertexids)))
+        && (!count || !memcmp(vertexids, lwpolyline->vertexids, count * sizeof(lwpolyline->vertexids)))
 )
       pass ("LWPOLYLINE.vertexids [BL*] * %d num_vertexids", count);
     else
@@ -15223,7 +15223,7 @@ static int test_LWPOLYLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(lwpolyline, "LWPOLYLINE", "num_widths", &count, NULL) &&
         dwg_dynapi_entity_values(lwpolyline, "LWPOLYLINE", "widths", &widths, count)
-        && (!count || !memcmp(&widths, &lwpolyline->widths, count * sizeof(lwpolyline->widths)))
+        && (!count || !memcmp(widths, lwpolyline->widths, count * sizeof(lwpolyline->widths)))
 )
       pass ("LWPOLYLINE.widths [Dwg_LWPOLYLINE_width*] * %d num_widths", count);
     else
@@ -15242,7 +15242,7 @@ static int test_MINSERT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(minsert, "MINSERT", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(minsert, "MINSERT", "attrib_handles", &attrib_handles, count)
-        && (!count || !memcmp(&attrib_handles, &minsert->attrib_handles, count * sizeof(minsert->attrib_handles)))
+        && (!count || !memcmp(attrib_handles, minsert->attrib_handles, count * sizeof(minsert->attrib_handles)))
 )
       pass ("MINSERT.attrib_handles [H*] * %d num_owned", count);
     else
@@ -15641,7 +15641,7 @@ static int test_MLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(mline, "MLINE", "num_verts", &count, NULL) &&
         dwg_dynapi_entity_values(mline, "MLINE", "verts", &verts, count)
-        && (!count || !memcmp(&verts, &mline->verts, count * sizeof(mline->verts)))
+        && (!count || !memcmp(verts, mline->verts, count * sizeof(mline->verts)))
 )
       pass ("MLINE.verts [Dwg_MLINE_vertex*] * %d num_verts", count);
     else
@@ -15820,7 +15820,7 @@ static int test_MTEXT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(mtext, "MTEXT", "num_column_heights", &count, NULL) &&
         dwg_dynapi_entity_values(mtext, "MTEXT", "column_heights", &column_heights, count)
-        && (!count || !memcmp(&column_heights, &mtext->column_heights, count * sizeof(mtext->column_heights)))
+        && (!count || !memcmp(column_heights, mtext->column_heights, count * sizeof(mtext->column_heights)))
 )
       pass ("MTEXT.column_heights [BD*] * %d num_column_heights", count);
     else
@@ -16229,7 +16229,7 @@ static int test_MULTILEADER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(multileader, "MULTILEADER", "num_arrowheads", &count, NULL) &&
         dwg_dynapi_entity_values(multileader, "MULTILEADER", "arrowheads", &arrowheads, count)
-        && (!count || !memcmp(&arrowheads, &multileader->arrowheads, count * sizeof(multileader->arrowheads)))
+        && (!count || !memcmp(arrowheads, multileader->arrowheads, count * sizeof(multileader->arrowheads)))
 )
       pass ("MULTILEADER.arrowheads [Dwg_LEADER_ArrowHead*] * %d num_arrowheads", count);
     else
@@ -16372,7 +16372,7 @@ static int test_MULTILEADER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(multileader, "MULTILEADER", "num_blocklabels", &count, NULL) &&
         dwg_dynapi_entity_values(multileader, "MULTILEADER", "blocklabels", &blocklabels, count)
-        && (!count || !memcmp(&blocklabels, &multileader->blocklabels, count * sizeof(multileader->blocklabels)))
+        && (!count || !memcmp(blocklabels, multileader->blocklabels, count * sizeof(multileader->blocklabels)))
 )
       pass ("MULTILEADER.blocklabels [Dwg_LEADER_BlockLabel*] * %d num_blocklabels", count);
     else
@@ -17143,7 +17143,7 @@ static int test_PLANESURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(planesurface, "PLANESURFACE", "num_block_size", &count, NULL) &&
         dwg_dynapi_entity_values(planesurface, "PLANESURFACE", "block_size", &block_size, count)
-        && (!count || !memcmp(&block_size, &planesurface->block_size, count * sizeof(planesurface->block_size)))
+        && (!count || !memcmp(block_size, planesurface->block_size, count * sizeof(planesurface->block_size)))
 )
       pass ("PLANESURFACE.block_size [BL*] * %d num_block_size", count);
     else
@@ -17186,7 +17186,7 @@ static int test_PLANESURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(planesurface, "PLANESURFACE", "num_extra_acis_data", &count, NULL) &&
         dwg_dynapi_entity_values(planesurface, "PLANESURFACE", "extra_acis_data", &extra_acis_data, count)
-        && (!count || !memcmp(&extra_acis_data, &planesurface->extra_acis_data, count * sizeof(planesurface->extra_acis_data)))
+        && (!count || !memcmp(extra_acis_data, planesurface->extra_acis_data, count * sizeof(planesurface->extra_acis_data)))
 )
       pass ("PLANESURFACE.extra_acis_data [struct _dwg_entity_3DSOLID*] * %d num_extra_acis_data", count);
     else
@@ -17369,7 +17369,7 @@ static int test_PLANESURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(planesurface, "PLANESURFACE", "num_silhouettes", &count, NULL) &&
         dwg_dynapi_entity_values(planesurface, "PLANESURFACE", "silhouettes", &silhouettes, count)
-        && (!count || !memcmp(&silhouettes, &planesurface->silhouettes, count * sizeof(planesurface->silhouettes)))
+        && (!count || !memcmp(silhouettes, planesurface->silhouettes, count * sizeof(planesurface->silhouettes)))
 )
       pass ("PLANESURFACE.silhouettes [Dwg_3DSOLID_silhouette*] * %d num_silhouettes", count);
     else
@@ -17502,7 +17502,7 @@ static int test_PLANESURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(planesurface, "PLANESURFACE", "num_wires", &count, NULL) &&
         dwg_dynapi_entity_values(planesurface, "PLANESURFACE", "wires", &wires, count)
-        && (!count || !memcmp(&wires, &planesurface->wires, count * sizeof(planesurface->wires)))
+        && (!count || !memcmp(wires, planesurface->wires, count * sizeof(planesurface->wires)))
 )
       pass ("PLANESURFACE.wires [Dwg_3DSOLID_wire*] * %d num_wires", count);
     else
@@ -17835,7 +17835,7 @@ static int test_POLYLINE_2D (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(polyline_2d, "POLYLINE_2D", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(polyline_2d, "POLYLINE_2D", "vertex", &vertex, count)
-        && (!count || !memcmp(&vertex, &polyline_2d->vertex, count * sizeof(polyline_2d->vertex)))
+        && (!count || !memcmp(vertex, polyline_2d->vertex, count * sizeof(polyline_2d->vertex)))
 )
       pass ("POLYLINE_2D.vertex [H*] * %d num_owned", count);
     else
@@ -17954,7 +17954,7 @@ static int test_POLYLINE_3D (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(polyline_3d, "POLYLINE_3D", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(polyline_3d, "POLYLINE_3D", "vertex", &vertex, count)
-        && (!count || !memcmp(&vertex, &polyline_3d->vertex, count * sizeof(polyline_3d->vertex)))
+        && (!count || !memcmp(vertex, polyline_3d->vertex, count * sizeof(polyline_3d->vertex)))
 )
       pass ("POLYLINE_3D.vertex [H*] * %d num_owned", count);
     else
@@ -18153,7 +18153,7 @@ static int test_POLYLINE_MESH (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(polyline_mesh, "POLYLINE_MESH", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(polyline_mesh, "POLYLINE_MESH", "vertex", &vertex, count)
-        && (!count || !memcmp(&vertex, &polyline_mesh->vertex, count * sizeof(polyline_mesh->vertex)))
+        && (!count || !memcmp(vertex, polyline_mesh->vertex, count * sizeof(polyline_mesh->vertex)))
 )
       pass ("POLYLINE_MESH.vertex [H*] * %d num_owned", count);
     else
@@ -18272,7 +18272,7 @@ static int test_POLYLINE_PFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(polyline_pface, "POLYLINE_PFACE", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(polyline_pface, "POLYLINE_PFACE", "vertex", &vertex, count)
-        && (!count || !memcmp(&vertex, &polyline_pface->vertex, count * sizeof(polyline_pface->vertex)))
+        && (!count || !memcmp(vertex, polyline_pface->vertex, count * sizeof(polyline_pface->vertex)))
 )
       pass ("POLYLINE_PFACE.vertex [H*] * %d num_owned", count);
     else
@@ -18361,7 +18361,7 @@ static int test_PROXY_ENTITY (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(proxy_entity, "PROXY_ENTITY", "num_objid_object_handles", &count, NULL) &&
         dwg_dynapi_entity_values(proxy_entity, "PROXY_ENTITY", "objid_object_handles", &objid_object_handles, count)
-        && (!count || !memcmp(&objid_object_handles, &proxy_entity->objid_object_handles, count * sizeof(proxy_entity->objid_object_handles)))
+        && (!count || !memcmp(objid_object_handles, proxy_entity->objid_object_handles, count * sizeof(proxy_entity->objid_object_handles)))
 )
       pass ("PROXY_ENTITY.objid_object_handles [H*] * %d num_objid_object_handles", count);
     else
@@ -18565,7 +18565,7 @@ static int test_REVOLVEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(revolvedsurface, "REVOLVEDSURFACE", "num_block_size", &count, NULL) &&
         dwg_dynapi_entity_values(revolvedsurface, "REVOLVEDSURFACE", "block_size", &block_size, count)
-        && (!count || !memcmp(&block_size, &revolvedsurface->block_size, count * sizeof(revolvedsurface->block_size)))
+        && (!count || !memcmp(block_size, revolvedsurface->block_size, count * sizeof(revolvedsurface->block_size)))
 )
       pass ("REVOLVEDSURFACE.block_size [BL*] * %d num_block_size", count);
     else
@@ -18688,7 +18688,7 @@ static int test_REVOLVEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(revolvedsurface, "REVOLVEDSURFACE", "num_extra_acis_data", &count, NULL) &&
         dwg_dynapi_entity_values(revolvedsurface, "REVOLVEDSURFACE", "extra_acis_data", &extra_acis_data, count)
-        && (!count || !memcmp(&extra_acis_data, &revolvedsurface->extra_acis_data, count * sizeof(revolvedsurface->extra_acis_data)))
+        && (!count || !memcmp(extra_acis_data, revolvedsurface->extra_acis_data, count * sizeof(revolvedsurface->extra_acis_data)))
 )
       pass ("REVOLVEDSURFACE.extra_acis_data [struct _dwg_entity_3DSOLID*] * %d num_extra_acis_data", count);
     else
@@ -18911,7 +18911,7 @@ static int test_REVOLVEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(revolvedsurface, "REVOLVEDSURFACE", "num_revolved_entity_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(revolvedsurface, "REVOLVEDSURFACE", "revolved_entity_transmatrix", &revolved_entity_transmatrix, count)
-        && (!count || !memcmp(&revolved_entity_transmatrix, &revolvedsurface->revolved_entity_transmatrix, count * sizeof(revolvedsurface->revolved_entity_transmatrix)))
+        && (!count || !memcmp(revolved_entity_transmatrix, revolvedsurface->revolved_entity_transmatrix, count * sizeof(revolvedsurface->revolved_entity_transmatrix)))
 )
       pass ("REVOLVEDSURFACE.revolved_entity_transmatrix [BD*] * %d num_revolved_entity_transmatrix", count);
     else
@@ -18924,7 +18924,7 @@ static int test_REVOLVEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(revolvedsurface, "REVOLVEDSURFACE", "num_silhouettes", &count, NULL) &&
         dwg_dynapi_entity_values(revolvedsurface, "REVOLVEDSURFACE", "silhouettes", &silhouettes, count)
-        && (!count || !memcmp(&silhouettes, &revolvedsurface->silhouettes, count * sizeof(revolvedsurface->silhouettes)))
+        && (!count || !memcmp(silhouettes, revolvedsurface->silhouettes, count * sizeof(revolvedsurface->silhouettes)))
 )
       pass ("REVOLVEDSURFACE.silhouettes [Dwg_3DSOLID_silhouette*] * %d num_silhouettes", count);
     else
@@ -19117,7 +19117,7 @@ static int test_REVOLVEDSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(revolvedsurface, "REVOLVEDSURFACE", "num_wires", &count, NULL) &&
         dwg_dynapi_entity_values(revolvedsurface, "REVOLVEDSURFACE", "wires", &wires, count)
-        && (!count || !memcmp(&wires, &revolvedsurface->wires, count * sizeof(revolvedsurface->wires)))
+        && (!count || !memcmp(wires, revolvedsurface->wires, count * sizeof(revolvedsurface->wires)))
 )
       pass ("REVOLVEDSURFACE.wires [Dwg_3DSOLID_wire*] * %d num_wires", count);
     else
@@ -19453,7 +19453,7 @@ static int test_SPLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(spline, "SPLINE", "num_ctrl_pts", &count, NULL) &&
         dwg_dynapi_entity_values(spline, "SPLINE", "ctrl_pts", &ctrl_pts, count)
-        && (!count || !memcmp(&ctrl_pts, &spline->ctrl_pts, count * sizeof(spline->ctrl_pts)))
+        && (!count || !memcmp(ctrl_pts, spline->ctrl_pts, count * sizeof(spline->ctrl_pts)))
 )
       pass ("SPLINE.ctrl_pts [Dwg_SPLINE_control_point*] * %d num_ctrl_pts", count);
     else
@@ -19516,7 +19516,7 @@ static int test_SPLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(spline, "SPLINE", "num_fit_pts", &count, NULL) &&
         dwg_dynapi_entity_values(spline, "SPLINE", "fit_pts", &fit_pts, count)
-        && (!count || !memcmp(&fit_pts, &spline->fit_pts, count * sizeof(spline->fit_pts)))
+        && (!count || !memcmp(fit_pts, spline->fit_pts, count * sizeof(spline->fit_pts)))
 )
       pass ("SPLINE.fit_pts [Dwg_SPLINE_point*] * %d num_fit_pts", count);
     else
@@ -19609,7 +19609,7 @@ static int test_SPLINE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(spline, "SPLINE", "num_knots", &count, NULL) &&
         dwg_dynapi_entity_values(spline, "SPLINE", "knots", &knots, count)
-        && (!count || !memcmp(&knots, &spline->knots, count * sizeof(spline->knots)))
+        && (!count || !memcmp(knots, spline->knots, count * sizeof(spline->knots)))
 )
       pass ("SPLINE.knots [BD*] * %d num_knots", count);
     else
@@ -19948,7 +19948,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_block_size", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "block_size", &block_size, count)
-        && (!count || !memcmp(&block_size, &sweptsurface->block_size, count * sizeof(sweptsurface->block_size)))
+        && (!count || !memcmp(block_size, sweptsurface->block_size, count * sizeof(sweptsurface->block_size)))
 )
       pass ("SWEPTSURFACE.block_size [BL*] * %d num_block_size", count);
     else
@@ -20051,7 +20051,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_extra_acis_data", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "extra_acis_data", &extra_acis_data, count)
-        && (!count || !memcmp(&extra_acis_data, &sweptsurface->extra_acis_data, count * sizeof(sweptsurface->extra_acis_data)))
+        && (!count || !memcmp(extra_acis_data, sweptsurface->extra_acis_data, count * sizeof(sweptsurface->extra_acis_data)))
 )
       pass ("SWEPTSURFACE.extra_acis_data [struct _dwg_entity_3DSOLID*] * %d num_extra_acis_data", count);
     else
@@ -20244,7 +20244,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_path_entity_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "path_entity_transmatrix", &path_entity_transmatrix, count)
-        && (!count || !memcmp(&path_entity_transmatrix, &sweptsurface->path_entity_transmatrix, count * sizeof(sweptsurface->path_entity_transmatrix)))
+        && (!count || !memcmp(path_entity_transmatrix, sweptsurface->path_entity_transmatrix, count * sizeof(sweptsurface->path_entity_transmatrix)))
 )
       pass ("SWEPTSURFACE.path_entity_transmatrix [BD*] * %d num_path_entity_transmatrix", count);
     else
@@ -20257,7 +20257,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_path_entity_transmatrix1", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "path_entity_transmatrix1", &path_entity_transmatrix1, count)
-        && (!count || !memcmp(&path_entity_transmatrix1, &sweptsurface->path_entity_transmatrix1, count * sizeof(sweptsurface->path_entity_transmatrix1)))
+        && (!count || !memcmp(path_entity_transmatrix1, sweptsurface->path_entity_transmatrix1, count * sizeof(sweptsurface->path_entity_transmatrix1)))
 )
       pass ("SWEPTSURFACE.path_entity_transmatrix1 [BD*] * %d num_path_entity_transmatrix1", count);
     else
@@ -20340,7 +20340,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_silhouettes", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "silhouettes", &silhouettes, count)
-        && (!count || !memcmp(&silhouettes, &sweptsurface->silhouettes, count * sizeof(sweptsurface->silhouettes)))
+        && (!count || !memcmp(silhouettes, sweptsurface->silhouettes, count * sizeof(sweptsurface->silhouettes)))
 )
       pass ("SWEPTSURFACE.silhouettes [Dwg_3DSOLID_silhouette*] * %d num_silhouettes", count);
     else
@@ -20473,7 +20473,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_sweep_entity_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "sweep_entity_transmatrix", &sweep_entity_transmatrix, count)
-        && (!count || !memcmp(&sweep_entity_transmatrix, &sweptsurface->sweep_entity_transmatrix, count * sizeof(sweptsurface->sweep_entity_transmatrix)))
+        && (!count || !memcmp(sweep_entity_transmatrix, sweptsurface->sweep_entity_transmatrix, count * sizeof(sweptsurface->sweep_entity_transmatrix)))
 )
       pass ("SWEPTSURFACE.sweep_entity_transmatrix [BD*] * %d num_sweep_entity_transmatrix", count);
     else
@@ -20486,7 +20486,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_sweep_entity_transmatrix1", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "sweep_entity_transmatrix1", &sweep_entity_transmatrix1, count)
-        && (!count || !memcmp(&sweep_entity_transmatrix1, &sweptsurface->sweep_entity_transmatrix1, count * sizeof(sweptsurface->sweep_entity_transmatrix1)))
+        && (!count || !memcmp(sweep_entity_transmatrix1, sweptsurface->sweep_entity_transmatrix1, count * sizeof(sweptsurface->sweep_entity_transmatrix1)))
 )
       pass ("SWEPTSURFACE.sweep_entity_transmatrix1 [BD*] * %d num_sweep_entity_transmatrix1", count);
     else
@@ -20649,7 +20649,7 @@ static int test_SWEPTSURFACE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sweptsurface, "SWEPTSURFACE", "num_wires", &count, NULL) &&
         dwg_dynapi_entity_values(sweptsurface, "SWEPTSURFACE", "wires", &wires, count)
-        && (!count || !memcmp(&wires, &sweptsurface->wires, count * sizeof(sweptsurface->wires)))
+        && (!count || !memcmp(wires, sweptsurface->wires, count * sizeof(sweptsurface->wires)))
 )
       pass ("SWEPTSURFACE.wires [Dwg_3DSOLID_wire*] * %d num_wires", count);
     else
@@ -20668,7 +20668,7 @@ static int test_TABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(table, "TABLE", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(table, "TABLE", "attribs", &attribs, count)
-        && (!count || !memcmp(&attribs, &table->attribs, count * sizeof(table->attribs)))
+        && (!count || !memcmp(attribs, table->attribs, count * sizeof(table->attribs)))
 )
       pass ("TABLE.attribs [H*] * %d num_owned", count);
     else
@@ -20791,7 +20791,7 @@ static int test_TABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(table, "TABLE", "num_break_heights", &count, NULL) &&
         dwg_dynapi_entity_values(table, "TABLE", "break_heights", &break_heights, count)
-        && (!count || !memcmp(&break_heights, &table->break_heights, count * sizeof(table->break_heights)))
+        && (!count || !memcmp(break_heights, table->break_heights, count * sizeof(table->break_heights)))
 )
       pass ("TABLE.break_heights [Dwg_TABLE_BreakHeight*] * %d num_break_heights", count);
     else
@@ -20804,7 +20804,7 @@ static int test_TABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(table, "TABLE", "num_break_rows", &count, NULL) &&
         dwg_dynapi_entity_values(table, "TABLE", "break_rows", &break_rows, count)
-        && (!count || !memcmp(&break_rows, &table->break_rows, count * sizeof(table->break_rows)))
+        && (!count || !memcmp(break_rows, table->break_rows, count * sizeof(table->break_rows)))
 )
       pass ("TABLE.break_rows [Dwg_TABLE_BreakRow*] * %d num_break_rows", count);
     else
@@ -20877,7 +20877,7 @@ static int test_TABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(table, "TABLE", "num_cells", &count, NULL) &&
         dwg_dynapi_entity_values(table, "TABLE", "cells", &cells, count)
-        && (!count || !memcmp(&cells, &table->cells, count * sizeof(table->cells)))
+        && (!count || !memcmp(cells, table->cells, count * sizeof(table->cells)))
 )
       pass ("TABLE.cells [Dwg_TABLE_Cell*] * %d num_cells", count);
     else
@@ -20890,7 +20890,7 @@ static int test_TABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(table, "TABLE", "num_col_widths", &count, NULL) &&
         dwg_dynapi_entity_values(table, "TABLE", "col_widths", &col_widths, count)
-        && (!count || !memcmp(&col_widths, &table->col_widths, count * sizeof(table->col_widths)))
+        && (!count || !memcmp(col_widths, table->col_widths, count * sizeof(table->col_widths)))
 )
       pass ("TABLE.col_widths [BD*] * %d num_col_widths", count);
     else
@@ -22133,7 +22133,7 @@ static int test_TABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(table, "TABLE", "num_row_heights", &count, NULL) &&
         dwg_dynapi_entity_values(table, "TABLE", "row_heights", &row_heights, count)
-        && (!count || !memcmp(&row_heights, &table->row_heights, count * sizeof(table->row_heights)))
+        && (!count || !memcmp(row_heights, table->row_heights, count * sizeof(table->row_heights)))
 )
       pass ("TABLE.row_heights [BD*] * %d num_row_heights", count);
     else
@@ -24375,7 +24375,7 @@ static int test_WIPEOUT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(wipeout, "WIPEOUT", "num_clip_verts", &count, NULL) &&
         dwg_dynapi_entity_values(wipeout, "WIPEOUT", "clip_verts", &clip_verts, count)
-        && (!count || !memcmp(&clip_verts, &wipeout->clip_verts, count * sizeof(wipeout->clip_verts)))
+        && (!count || !memcmp(clip_verts, wipeout->clip_verts, count * sizeof(wipeout->clip_verts)))
 )
       pass ("WIPEOUT.clip_verts [2RD*] * %d num_clip_verts", count);
     else
@@ -24910,7 +24910,7 @@ static int test_ACSH_SWEEP_CLASS (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(acsh_sweep_class, "ACSH_SWEEP_CLASS", "num_pathentity_transform", &count, NULL) &&
         dwg_dynapi_entity_values(acsh_sweep_class, "ACSH_SWEEP_CLASS", "pathentity_transform", &pathentity_transform, count)
-        && (!count || !memcmp(&pathentity_transform, &acsh_sweep_class->pathentity_transform, count * sizeof(acsh_sweep_class->pathentity_transform)))
+        && (!count || !memcmp(pathentity_transform, acsh_sweep_class->pathentity_transform, count * sizeof(acsh_sweep_class->pathentity_transform)))
 )
       pass ("ACSH_SWEEP_CLASS.pathentity_transform [BD*] * %d num_pathentity_transform", count);
     else
@@ -25033,7 +25033,7 @@ static int test_ACSH_SWEEP_CLASS (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(acsh_sweep_class, "ACSH_SWEEP_CLASS", "num_shhn_pts", &count, NULL) &&
         dwg_dynapi_entity_values(acsh_sweep_class, "ACSH_SWEEP_CLASS", "shhn_pts", &shhn_pts, count)
-        && (!count || !memcmp(&shhn_pts, &acsh_sweep_class->shhn_pts, count * sizeof(acsh_sweep_class->shhn_pts)))
+        && (!count || !memcmp(shhn_pts, acsh_sweep_class->shhn_pts, count * sizeof(acsh_sweep_class->shhn_pts)))
 )
       pass ("ACSH_SWEEP_CLASS.shhn_pts [BD*] * %d num_shhn_pts", count);
     else
@@ -25266,7 +25266,7 @@ static int test_ACSH_SWEEP_CLASS (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(acsh_sweep_class, "ACSH_SWEEP_CLASS", "num_sweepentity_transform", &count, NULL) &&
         dwg_dynapi_entity_values(acsh_sweep_class, "ACSH_SWEEP_CLASS", "sweepentity_transform", &sweepentity_transform, count)
-        && (!count || !memcmp(&sweepentity_transform, &acsh_sweep_class->sweepentity_transform, count * sizeof(acsh_sweep_class->sweepentity_transform)))
+        && (!count || !memcmp(sweepentity_transform, acsh_sweep_class->sweepentity_transform, count * sizeof(acsh_sweep_class->sweepentity_transform)))
 )
       pass ("ACSH_SWEEP_CLASS.sweepentity_transform [BD*] * %d num_sweepentity_transform", count);
     else
@@ -25471,7 +25471,7 @@ static int test_APPID_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(appid_control, "APPID_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(appid_control, "APPID_CONTROL", "apps", &apps, count)
-        && (!count || !memcmp(&apps, &appid_control->apps, count * sizeof(appid_control->apps)))
+        && (!count || !memcmp(apps, appid_control->apps, count * sizeof(appid_control->apps)))
 )
       pass ("APPID_CONTROL.apps [H*] * %d num_entries", count);
     else
@@ -25541,11 +25541,9 @@ static int test_APPID_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(appid_control, "APPID_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(appid_control, "APPID_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &appid_control->reactors, count * sizeof(appid_control->reactors)))
-)
+    int count = appid_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(appid_control, "APPID_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, appid_control->reactors, count * sizeof(appid_control->reactors))))
       pass ("APPID_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -26079,7 +26077,7 @@ static int test_ASSOCACTION (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(assocaction, "ASSOCACTION", "num_deps", &count, NULL) &&
         dwg_dynapi_entity_values(assocaction, "ASSOCACTION", "readdeps", &readdeps, count)
-        && (!count || !memcmp(&readdeps, &assocaction->readdeps, count * sizeof(assocaction->readdeps)))
+        && (!count || !memcmp(readdeps, assocaction->readdeps, count * sizeof(assocaction->readdeps)))
 )
       pass ("ASSOCACTION.readdeps [H*] * %d num_deps", count);
     else
@@ -26132,7 +26130,7 @@ static int test_ASSOCACTION (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(assocaction, "ASSOCACTION", "num_deps", &count, NULL) &&
         dwg_dynapi_entity_values(assocaction, "ASSOCACTION", "writedeps", &writedeps, count)
-        && (!count || !memcmp(&writedeps, &assocaction->writedeps, count * sizeof(assocaction->writedeps)))
+        && (!count || !memcmp(writedeps, assocaction->writedeps, count * sizeof(assocaction->writedeps)))
 )
       pass ("ASSOCACTION.writedeps [H*] * %d num_deps", count);
     else
@@ -26623,7 +26621,7 @@ static int test_ASSOCNETWORK (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(assocnetwork, "ASSOCNETWORK", "num_actions", &count, NULL) &&
         dwg_dynapi_entity_values(assocnetwork, "ASSOCNETWORK", "actions", &actions, count)
-        && (!count || !memcmp(&actions, &assocnetwork->actions, count * sizeof(assocnetwork->actions)))
+        && (!count || !memcmp(actions, assocnetwork->actions, count * sizeof(assocnetwork->actions)))
 )
       pass ("ASSOCNETWORK.actions [H*] * %d num_actions", count);
     else
@@ -28090,7 +28088,7 @@ static int test_BLOCK_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(block_control, "BLOCK_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(block_control, "BLOCK_CONTROL", "block_headers", &block_headers, count)
-        && (!count || !memcmp(&block_headers, &block_control->block_headers, count * sizeof(block_control->block_headers)))
+        && (!count || !memcmp(block_headers, block_control->block_headers, count * sizeof(block_control->block_headers)))
 )
       pass ("BLOCK_CONTROL.block_headers [H*] * %d num_entries", count);
     else
@@ -28180,11 +28178,9 @@ static int test_BLOCK_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(block_control, "BLOCK_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(block_control, "BLOCK_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &block_control->reactors, count * sizeof(block_control->reactors)))
-)
+    int count = block_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(block_control, "BLOCK_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, block_control->reactors, count * sizeof(block_control->reactors))))
       pass ("BLOCK_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -28342,7 +28338,7 @@ static int test_BLOCK_HEADER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(block_header, "BLOCK_HEADER", "num_owned", &count, NULL) &&
         dwg_dynapi_entity_values(block_header, "BLOCK_HEADER", "entities", &entities, count)
-        && (!count || !memcmp(&entities, &block_header->entities, count * sizeof(block_header->entities)))
+        && (!count || !memcmp(entities, block_header->entities, count * sizeof(block_header->entities)))
 )
       pass ("BLOCK_HEADER.entities [H*] * %d num_owned", count);
     else
@@ -28465,7 +28461,7 @@ static int test_BLOCK_HEADER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(block_header, "BLOCK_HEADER", "num_inserts", &count, NULL) &&
         dwg_dynapi_entity_values(block_header, "BLOCK_HEADER", "insert_handles", &insert_handles, count)
-        && (!count || !memcmp(&insert_handles, &block_header->insert_handles, count * sizeof(block_header->insert_handles)))
+        && (!count || !memcmp(insert_handles, block_header->insert_handles, count * sizeof(block_header->insert_handles)))
 )
       pass ("BLOCK_HEADER.insert_handles [H*] * %d num_inserts", count);
     else
@@ -28754,7 +28750,7 @@ static int test_CELLSTYLEMAP (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(cellstylemap, "CELLSTYLEMAP", "num_cells", &count, NULL) &&
         dwg_dynapi_entity_values(cellstylemap, "CELLSTYLEMAP", "cells", &cells, count)
-        && (!count || !memcmp(&cells, &cellstylemap->cells, count * sizeof(cellstylemap->cells)))
+        && (!count || !memcmp(cells, cellstylemap->cells, count * sizeof(cellstylemap->cells)))
 )
       pass ("CELLSTYLEMAP.cells [Dwg_CELLSTYLEMAP_Cell*] * %d num_cells", count);
     else
@@ -28985,7 +28981,7 @@ static int test_DICTIONARY (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(dictionary, "DICTIONARY", "numitems", &count, NULL) &&
         dwg_dynapi_entity_values(dictionary, "DICTIONARY", "itemhandles", &itemhandles, count)
-        && (!count || !memcmp(&itemhandles, &dictionary->itemhandles, count * sizeof(dictionary->itemhandles)))
+        && (!count || !memcmp(itemhandles, dictionary->itemhandles, count * sizeof(dictionary->itemhandles)))
 )
       pass ("DICTIONARY.itemhandles [H*] * %d numitems", count);
     else
@@ -29038,7 +29034,7 @@ static int test_DICTIONARY (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(dictionary, "DICTIONARY", "numitems", &count, NULL) &&
         dwg_dynapi_entity_values(dictionary, "DICTIONARY", "text", &text, count)
-        && (!count || !memcmp(&text, &dictionary->text, count * sizeof(dictionary->text)))
+        && (!count || !memcmp(text, dictionary->text, count * sizeof(dictionary->text)))
 )
       pass ("DICTIONARY.text [TV*] * %d numitems", count);
     else
@@ -29203,7 +29199,7 @@ static int test_DICTIONARYWDFLT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(dictionarywdflt, "DICTIONARYWDFLT", "numitems", &count, NULL) &&
         dwg_dynapi_entity_values(dictionarywdflt, "DICTIONARYWDFLT", "itemhandles", &itemhandles, count)
-        && (!count || !memcmp(&itemhandles, &dictionarywdflt->itemhandles, count * sizeof(dictionarywdflt->itemhandles)))
+        && (!count || !memcmp(itemhandles, dictionarywdflt->itemhandles, count * sizeof(dictionarywdflt->itemhandles)))
 )
       pass ("DICTIONARYWDFLT.itemhandles [H*] * %d numitems", count);
     else
@@ -29256,7 +29252,7 @@ static int test_DICTIONARYWDFLT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(dictionarywdflt, "DICTIONARYWDFLT", "numitems", &count, NULL) &&
         dwg_dynapi_entity_values(dictionarywdflt, "DICTIONARYWDFLT", "text", &text, count)
-        && (!count || !memcmp(&text, &dictionarywdflt->text, count * sizeof(dictionarywdflt->text)))
+        && (!count || !memcmp(text, dictionarywdflt->text, count * sizeof(dictionarywdflt->text)))
 )
       pass ("DICTIONARYWDFLT.text [TV*] * %d numitems", count);
     else
@@ -29375,7 +29371,7 @@ static int test_DIMASSOC (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(dimassoc, "DIMASSOC", "num_ref", &count, NULL) &&
         dwg_dynapi_entity_values(dimassoc, "DIMASSOC", "ref", &ref, count)
-        && (!count || !memcmp(&ref, &dimassoc->ref, count * sizeof(dimassoc->ref)))
+        && (!count || !memcmp(ref, dimassoc->ref, count * sizeof(dimassoc->ref)))
 )
       pass ("DIMASSOC.ref [Dwg_DIMASSOC_Ref*] * %d num_ref", count);
     else
@@ -31140,7 +31136,7 @@ static int test_DIMSTYLE_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(dimstyle_control, "DIMSTYLE_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(dimstyle_control, "DIMSTYLE_CONTROL", "dimstyles", &dimstyles, count)
-        && (!count || !memcmp(&dimstyles, &dimstyle_control->dimstyles, count * sizeof(dimstyle_control->dimstyles)))
+        && (!count || !memcmp(dimstyles, dimstyle_control->dimstyles, count * sizeof(dimstyle_control->dimstyles)))
 )
       pass ("DIMSTYLE_CONTROL.dimstyles [H*] * %d num_entries", count);
     else
@@ -31153,7 +31149,7 @@ static int test_DIMSTYLE_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(dimstyle_control, "DIMSTYLE_CONTROL", "num_morehandles", &count, NULL) &&
         dwg_dynapi_entity_values(dimstyle_control, "DIMSTYLE_CONTROL", "morehandles", &morehandles, count)
-        && (!count || !memcmp(&morehandles, &dimstyle_control->morehandles, count * sizeof(dimstyle_control->morehandles)))
+        && (!count || !memcmp(morehandles, dimstyle_control->morehandles, count * sizeof(dimstyle_control->morehandles)))
 )
       pass ("DIMSTYLE_CONTROL.morehandles [H*] * %d num_morehandles", count);
     else
@@ -31243,11 +31239,9 @@ static int test_DIMSTYLE_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(dimstyle_control, "DIMSTYLE_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(dimstyle_control, "DIMSTYLE_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &dimstyle_control->reactors, count * sizeof(dimstyle_control->reactors)))
-)
+    int count = dimstyle_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(dimstyle_control, "DIMSTYLE_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, dimstyle_control->reactors, count * sizeof(dimstyle_control->reactors))))
       pass ("DIMSTYLE_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -31603,7 +31597,7 @@ static int test_FIELD (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(field, "FIELD", "num_childval", &count, NULL) &&
         dwg_dynapi_entity_values(field, "FIELD", "childval", &childval, count)
-        && (!count || !memcmp(&childval, &field->childval, count * sizeof(field->childval)))
+        && (!count || !memcmp(childval, field->childval, count * sizeof(field->childval)))
 )
       pass ("FIELD.childval [Dwg_FIELD_ChildValue*] * %d num_childval", count);
     else
@@ -32058,7 +32052,7 @@ static int test_GEODATA (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(geodata, "GEODATA", "num_geomesh_faces", &count, NULL) &&
         dwg_dynapi_entity_values(geodata, "GEODATA", "geomesh_faces", &geomesh_faces, count)
-        && (!count || !memcmp(&geomesh_faces, &geodata->geomesh_faces, count * sizeof(geodata->geomesh_faces)))
+        && (!count || !memcmp(geomesh_faces, geodata->geomesh_faces, count * sizeof(geodata->geomesh_faces)))
 )
       pass ("GEODATA.geomesh_faces [Dwg_GEODATA_meshface*] * %d num_geomesh_faces", count);
     else
@@ -32071,7 +32065,7 @@ static int test_GEODATA (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(geodata, "GEODATA", "num_geomesh_pts", &count, NULL) &&
         dwg_dynapi_entity_values(geodata, "GEODATA", "geomesh_pts", &geomesh_pts, count)
-        && (!count || !memcmp(&geomesh_pts, &geodata->geomesh_pts, count * sizeof(geodata->geomesh_pts)))
+        && (!count || !memcmp(geomesh_pts, geodata->geomesh_pts, count * sizeof(geodata->geomesh_pts)))
 )
       pass ("GEODATA.geomesh_pts [Dwg_GEODATA_meshpt*] * %d num_geomesh_pts", count);
     else
@@ -32460,7 +32454,7 @@ static int test_GROUP (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(group, "GROUP", "num_handles", &count, NULL) &&
         dwg_dynapi_entity_values(group, "GROUP", "group_entries", &group_entries, count)
-        && (!count || !memcmp(&group_entries, &group->group_entries, count * sizeof(group->group_entries)))
+        && (!count || !memcmp(group_entries, group->group_entries, count * sizeof(group->group_entries)))
 )
       pass ("GROUP.group_entries [H*] * %d num_handles", count);
     else
@@ -32589,7 +32583,7 @@ static int test_IDBUFFER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(idbuffer, "IDBUFFER", "num_obj_ids", &count, NULL) &&
         dwg_dynapi_entity_values(idbuffer, "IDBUFFER", "obj_ids", &obj_ids, count)
-        && (!count || !memcmp(&obj_ids, &idbuffer->obj_ids, count * sizeof(idbuffer->obj_ids)))
+        && (!count || !memcmp(obj_ids, idbuffer->obj_ids, count * sizeof(idbuffer->obj_ids)))
 )
       pass ("IDBUFFER.obj_ids [H*] * %d num_obj_ids", count);
     else
@@ -33166,7 +33160,7 @@ static int test_LAYER_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(layer_control, "LAYER_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(layer_control, "LAYER_CONTROL", "layers", &layers, count)
-        && (!count || !memcmp(&layers, &layer_control->layers, count * sizeof(layer_control->layers)))
+        && (!count || !memcmp(layers, layer_control->layers, count * sizeof(layer_control->layers)))
 )
       pass ("LAYER_CONTROL.layers [H*] * %d num_entries", count);
     else
@@ -33236,11 +33230,9 @@ static int test_LAYER_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(layer_control, "LAYER_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(layer_control, "LAYER_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &layer_control->reactors, count * sizeof(layer_control->reactors)))
-)
+    int count = layer_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(layer_control, "LAYER_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, layer_control->reactors, count * sizeof(layer_control->reactors))))
       pass ("LAYER_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -33268,7 +33260,7 @@ static int test_LAYER_INDEX (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(layer_index, "LAYER_INDEX", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(layer_index, "LAYER_INDEX", "entries", &entries, count)
-        && (!count || !memcmp(&entries, &layer_index->entries, count * sizeof(layer_index->entries)))
+        && (!count || !memcmp(entries, layer_index->entries, count * sizeof(layer_index->entries)))
 )
       pass ("LAYER_INDEX.entries [Dwg_LAYER_entry*] * %d num_entries", count);
     else
@@ -33281,7 +33273,7 @@ static int test_LAYER_INDEX (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(layer_index, "LAYER_INDEX", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(layer_index, "LAYER_INDEX", "entry_handles", &entry_handles, count)
-        && (!count || !memcmp(&entry_handles, &layer_index->entry_handles, count * sizeof(layer_index->entry_handles)))
+        && (!count || !memcmp(entry_handles, layer_index->entry_handles, count * sizeof(layer_index->entry_handles)))
 )
       pass ("LAYER_INDEX.entry_handles [H*] * %d num_entries", count);
     else
@@ -34050,7 +34042,7 @@ static int test_LAYOUT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(layout, "LAYOUT", "num_viewports", &count, NULL) &&
         dwg_dynapi_entity_values(layout, "LAYOUT", "viewports", &viewports, count)
-        && (!count || !memcmp(&viewports, &layout->viewports, count * sizeof(layout->viewports)))
+        && (!count || !memcmp(viewports, layout->viewports, count * sizeof(layout->viewports)))
 )
       pass ("LAYOUT.viewports [H*] * %d num_viewports", count);
     else
@@ -34119,7 +34111,7 @@ static int test_LIGHTLIST (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(lightlist, "LIGHTLIST", "num_dictionary", &count, NULL) &&
         dwg_dynapi_entity_values(lightlist, "LIGHTLIST", "dictionary", &dictionary, count)
-        && (!count || !memcmp(&dictionary, &lightlist->dictionary, count * sizeof(lightlist->dictionary)))
+        && (!count || !memcmp(dictionary, lightlist->dictionary, count * sizeof(lightlist->dictionary)))
 )
       pass ("LIGHTLIST.dictionary [H*] * %d num_dictionary", count);
     else
@@ -34224,7 +34216,7 @@ static int test_LTYPE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(ltype, "LTYPE", "num_dash", &count, NULL) &&
         dwg_dynapi_entity_values(ltype, "LTYPE", "dash", &dash, count)
-        && (!count || !memcmp(&dash, &ltype->dash, count * sizeof(ltype->dash)))
+        && (!count || !memcmp(dash, ltype->dash, count * sizeof(ltype->dash)))
 )
       pass ("LTYPE.dash [Dwg_LTYPE_dash*] * %d num_dash", count);
     else
@@ -34237,7 +34229,7 @@ static int test_LTYPE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(ltype, "LTYPE", "num_dashes_r11", &count, NULL) &&
         dwg_dynapi_entity_values(ltype, "LTYPE", "dashes_r11", &dashes_r11, count)
-        && (!count || !memcmp(&dashes_r11, &ltype->dashes_r11, count * sizeof(ltype->dashes_r11)))
+        && (!count || !memcmp(dashes_r11, ltype->dashes_r11, count * sizeof(ltype->dashes_r11)))
 )
       pass ("LTYPE.dashes_r11 [RD*] * %d num_dashes_r11", count);
     else
@@ -34370,7 +34362,7 @@ static int test_LTYPE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(ltype, "LTYPE", "num_dashes", &count, NULL) &&
         dwg_dynapi_entity_values(ltype, "LTYPE", "styles", &styles, count)
-        && (!count || !memcmp(&styles, &ltype->styles, count * sizeof(ltype->styles)))
+        && (!count || !memcmp(styles, ltype->styles, count * sizeof(ltype->styles)))
 )
       pass ("LTYPE.styles [H*] * %d num_dashes", count);
     else
@@ -34509,7 +34501,7 @@ static int test_LTYPE_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(ltype_control, "LTYPE_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(ltype_control, "LTYPE_CONTROL", "linetypes", &linetypes, count)
-        && (!count || !memcmp(&linetypes, &ltype_control->linetypes, count * sizeof(ltype_control->linetypes)))
+        && (!count || !memcmp(linetypes, ltype_control->linetypes, count * sizeof(ltype_control->linetypes)))
 )
       pass ("LTYPE_CONTROL.linetypes [H*] * %d num_entries", count);
     else
@@ -34579,11 +34571,9 @@ static int test_LTYPE_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(ltype_control, "LTYPE_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(ltype_control, "LTYPE_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &ltype_control->reactors, count * sizeof(ltype_control->reactors)))
-)
+    int count = ltype_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(ltype_control, "LTYPE_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, ltype_control->reactors, count * sizeof(ltype_control->reactors))))
       pass ("LTYPE_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -34771,7 +34761,7 @@ static int test_MATERIAL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(material, "MATERIAL", "num_bumpmap_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(material, "MATERIAL", "bumpmap_transmatrix", &bumpmap_transmatrix, count)
-        && (!count || !memcmp(&bumpmap_transmatrix, &material->bumpmap_transmatrix, count * sizeof(material->bumpmap_transmatrix)))
+        && (!count || !memcmp(bumpmap_transmatrix, material->bumpmap_transmatrix, count * sizeof(material->bumpmap_transmatrix)))
 )
       pass ("MATERIAL.bumpmap_transmatrix [BD*] * %d num_bumpmap_transmatrix", count);
     else
@@ -34994,7 +34984,7 @@ static int test_MATERIAL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(material, "MATERIAL", "num_diffusemap_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(material, "MATERIAL", "diffusemap_transmatrix", &diffusemap_transmatrix, count)
-        && (!count || !memcmp(&diffusemap_transmatrix, &material->diffusemap_transmatrix, count * sizeof(material->diffusemap_transmatrix)))
+        && (!count || !memcmp(diffusemap_transmatrix, material->diffusemap_transmatrix, count * sizeof(material->diffusemap_transmatrix)))
 )
       pass ("MATERIAL.diffusemap_transmatrix [BD*] * %d num_diffusemap_transmatrix", count);
     else
@@ -35467,7 +35457,7 @@ static int test_MATERIAL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(material, "MATERIAL", "num_normalmap_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(material, "MATERIAL", "normalmap_transmatrix", &normalmap_transmatrix, count)
-        && (!count || !memcmp(&normalmap_transmatrix, &material->normalmap_transmatrix, count * sizeof(material->normalmap_transmatrix)))
+        && (!count || !memcmp(normalmap_transmatrix, material->normalmap_transmatrix, count * sizeof(material->normalmap_transmatrix)))
 )
       pass ("MATERIAL.normalmap_transmatrix [BD*] * %d num_normalmap_transmatrix", count);
     else
@@ -35610,7 +35600,7 @@ static int test_MATERIAL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(material, "MATERIAL", "num_opacitymap_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(material, "MATERIAL", "opacitymap_transmatrix", &opacitymap_transmatrix, count)
-        && (!count || !memcmp(&opacitymap_transmatrix, &material->opacitymap_transmatrix, count * sizeof(material->opacitymap_transmatrix)))
+        && (!count || !memcmp(opacitymap_transmatrix, material->opacitymap_transmatrix, count * sizeof(material->opacitymap_transmatrix)))
 )
       pass ("MATERIAL.opacitymap_transmatrix [BD*] * %d num_opacitymap_transmatrix", count);
     else
@@ -35773,7 +35763,7 @@ static int test_MATERIAL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(material, "MATERIAL", "num_reflectionmap_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(material, "MATERIAL", "reflectionmap_transmatrix", &reflectionmap_transmatrix, count)
-        && (!count || !memcmp(&reflectionmap_transmatrix, &material->reflectionmap_transmatrix, count * sizeof(material->reflectionmap_transmatrix)))
+        && (!count || !memcmp(reflectionmap_transmatrix, material->reflectionmap_transmatrix, count * sizeof(material->reflectionmap_transmatrix)))
 )
       pass ("MATERIAL.reflectionmap_transmatrix [BD*] * %d num_reflectionmap_transmatrix", count);
     else
@@ -35936,7 +35926,7 @@ static int test_MATERIAL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(material, "MATERIAL", "num_refractionmap_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(material, "MATERIAL", "refractionmap_transmatrix", &refractionmap_transmatrix, count)
-        && (!count || !memcmp(&refractionmap_transmatrix, &material->refractionmap_transmatrix, count * sizeof(material->refractionmap_transmatrix)))
+        && (!count || !memcmp(refractionmap_transmatrix, material->refractionmap_transmatrix, count * sizeof(material->refractionmap_transmatrix)))
 )
       pass ("MATERIAL.refractionmap_transmatrix [BD*] * %d num_refractionmap_transmatrix", count);
     else
@@ -36149,7 +36139,7 @@ static int test_MATERIAL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(material, "MATERIAL", "num_specularmap_transmatrix", &count, NULL) &&
         dwg_dynapi_entity_values(material, "MATERIAL", "specularmap_transmatrix", &specularmap_transmatrix, count)
-        && (!count || !memcmp(&specularmap_transmatrix, &material->specularmap_transmatrix, count * sizeof(material->specularmap_transmatrix)))
+        && (!count || !memcmp(specularmap_transmatrix, material->specularmap_transmatrix, count * sizeof(material->specularmap_transmatrix)))
 )
       pass ("MATERIAL.specularmap_transmatrix [BD*] * %d num_specularmap_transmatrix", count);
     else
@@ -37104,7 +37094,7 @@ static int test_MLINESTYLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(mlinestyle, "MLINESTYLE", "num_lines", &count, NULL) &&
         dwg_dynapi_entity_values(mlinestyle, "MLINESTYLE", "lines", &lines, count)
-        && (!count || !memcmp(&lines, &mlinestyle->lines, count * sizeof(mlinestyle->lines)))
+        && (!count || !memcmp(lines, mlinestyle->lines, count * sizeof(mlinestyle->lines)))
 )
       pass ("MLINESTYLE.lines [Dwg_MLINESTYLE_line*] * %d num_lines", count);
     else
@@ -38023,7 +38013,7 @@ static int test_PROXY_OBJECT (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(proxy_object, "PROXY_OBJECT", "num_objid_object_handles", &count, NULL) &&
         dwg_dynapi_entity_values(proxy_object, "PROXY_OBJECT", "objid_object_handles", &objid_object_handles, count)
-        && (!count || !memcmp(&objid_object_handles, &proxy_object->objid_object_handles, count * sizeof(proxy_object->objid_object_handles)))
+        && (!count || !memcmp(objid_object_handles, proxy_object->objid_object_handles, count * sizeof(proxy_object->objid_object_handles)))
 )
       pass ("PROXY_OBJECT.objid_object_handles [H*] * %d num_objid_object_handles", count);
     else
@@ -38304,7 +38294,7 @@ static int test_SORTENTSTABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sortentstable, "SORTENTSTABLE", "num_ents", &count, NULL) &&
         dwg_dynapi_entity_values(sortentstable, "SORTENTSTABLE", "ents", &ents, count)
-        && (!count || !memcmp(&ents, &sortentstable->ents, count * sizeof(sortentstable->ents)))
+        && (!count || !memcmp(ents, sortentstable->ents, count * sizeof(sortentstable->ents)))
 )
       pass ("SORTENTSTABLE.ents [H*] * %d num_ents", count);
     else
@@ -38367,7 +38357,7 @@ static int test_SORTENTSTABLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sortentstable, "SORTENTSTABLE", "num_ents", &count, NULL) &&
         dwg_dynapi_entity_values(sortentstable, "SORTENTSTABLE", "sort_handles", &sort_handles, count)
-        && (!count || !memcmp(&sort_handles, &sortentstable->sort_handles, count * sizeof(sortentstable->sort_handles)))
+        && (!count || !memcmp(sort_handles, sortentstable->sort_handles, count * sizeof(sortentstable->sort_handles)))
 )
       pass ("SORTENTSTABLE.sort_handles [H*] * %d num_ents", count);
     else
@@ -38436,7 +38426,7 @@ static int test_SPATIAL_FILTER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(spatial_filter, "SPATIAL_FILTER", "num_clip_bound_transform", &count, NULL) &&
         dwg_dynapi_entity_values(spatial_filter, "SPATIAL_FILTER", "clip_bound_transform", &clip_bound_transform, count)
-        && (!count || !memcmp(&clip_bound_transform, &spatial_filter->clip_bound_transform, count * sizeof(spatial_filter->clip_bound_transform)))
+        && (!count || !memcmp(clip_bound_transform, spatial_filter->clip_bound_transform, count * sizeof(spatial_filter->clip_bound_transform)))
 )
       pass ("SPATIAL_FILTER.clip_bound_transform [BD*] * %d num_clip_bound_transform", count);
     else
@@ -38519,7 +38509,7 @@ static int test_SPATIAL_FILTER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(spatial_filter, "SPATIAL_FILTER", "num_inverse_block_transform", &count, NULL) &&
         dwg_dynapi_entity_values(spatial_filter, "SPATIAL_FILTER", "inverse_block_transform", &inverse_block_transform, count)
-        && (!count || !memcmp(&inverse_block_transform, &spatial_filter->inverse_block_transform, count * sizeof(spatial_filter->inverse_block_transform)))
+        && (!count || !memcmp(inverse_block_transform, spatial_filter->inverse_block_transform, count * sizeof(spatial_filter->inverse_block_transform)))
 )
       pass ("SPATIAL_FILTER.inverse_block_transform [BD*] * %d num_inverse_block_transform", count);
     else
@@ -38572,7 +38562,7 @@ static int test_SPATIAL_FILTER (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(spatial_filter, "SPATIAL_FILTER", "num_points", &count, NULL) &&
         dwg_dynapi_entity_values(spatial_filter, "SPATIAL_FILTER", "points", &points, count)
-        && (!count || !memcmp(&points, &spatial_filter->points, count * sizeof(spatial_filter->points)))
+        && (!count || !memcmp(points, spatial_filter->points, count * sizeof(spatial_filter->points)))
 )
       pass ("SPATIAL_FILTER.points [2RD*] * %d num_points", count);
     else
@@ -39030,11 +39020,9 @@ static int test_STYLE_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(style_control, "STYLE_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(style_control, "STYLE_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &style_control->reactors, count * sizeof(style_control->reactors)))
-)
+    int count = style_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(style_control, "STYLE_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, style_control->reactors, count * sizeof(style_control->reactors))))
       pass ("STYLE_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -39046,7 +39034,7 @@ static int test_STYLE_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(style_control, "STYLE_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(style_control, "STYLE_CONTROL", "styles", &styles, count)
-        && (!count || !memcmp(&styles, &style_control->styles, count * sizeof(style_control->styles)))
+        && (!count || !memcmp(styles, style_control->styles, count * sizeof(style_control->styles)))
 )
       pass ("STYLE_CONTROL.styles [H*] * %d num_entries", count);
     else
@@ -39361,7 +39349,7 @@ static int test_SUNSTUDY (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sunstudy, "SUNSTUDY", "num_dates", &count, NULL) &&
         dwg_dynapi_entity_values(sunstudy, "SUNSTUDY", "dates", &dates, count)
-        && (!count || !memcmp(&dates, &sunstudy->dates, count * sizeof(sunstudy->dates)))
+        && (!count || !memcmp(dates, sunstudy->dates, count * sizeof(sunstudy->dates)))
 )
       pass ("SUNSTUDY.dates [Dwg_SUNSTUDY_Dates*] * %d num_dates", count);
     else
@@ -39404,7 +39392,7 @@ static int test_SUNSTUDY (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(sunstudy, "SUNSTUDY", "num_hours", &count, NULL) &&
         dwg_dynapi_entity_values(sunstudy, "SUNSTUDY", "hours", &hours, count)
-        && (!count || !memcmp(&hours, &sunstudy->hours, count * sizeof(sunstudy->hours)))
+        && (!count || !memcmp(hours, sunstudy->hours, count * sizeof(sunstudy->hours)))
 )
       pass ("SUNSTUDY.hours [B*] * %d num_hours", count);
     else
@@ -39869,7 +39857,7 @@ static int test_TABLEGEOMETRY (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(tablegeometry, "TABLEGEOMETRY", "num_cells", &count, NULL) &&
         dwg_dynapi_entity_values(tablegeometry, "TABLEGEOMETRY", "cells", &cells, count)
-        && (!count || !memcmp(&cells, &tablegeometry->cells, count * sizeof(tablegeometry->cells)))
+        && (!count || !memcmp(cells, tablegeometry->cells, count * sizeof(tablegeometry->cells)))
 )
       pass ("TABLEGEOMETRY.cells [Dwg_TABLEGEOMETRY_Cell*] * %d num_cells", count);
     else
@@ -39958,7 +39946,7 @@ static int test_TABLESTYLE (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(tablestyle, "TABLESTYLE", "num_cells", &count, NULL) &&
         dwg_dynapi_entity_values(tablestyle, "TABLESTYLE", "cells", &cells, count)
-        && (!count || !memcmp(&cells, &tablestyle->cells, count * sizeof(tablestyle->cells)))
+        && (!count || !memcmp(cells, tablestyle->cells, count * sizeof(tablestyle->cells)))
 )
       pass ("TABLESTYLE.cells [Dwg_TABLESTYLE_Cell*] * %d num_cells", count);
     else
@@ -40470,11 +40458,9 @@ static int test_UCS_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(ucs_control, "UCS_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(ucs_control, "UCS_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &ucs_control->reactors, count * sizeof(ucs_control->reactors)))
-)
+    int count = ucs_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(ucs_control, "UCS_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, ucs_control->reactors, count * sizeof(ucs_control->reactors))))
       pass ("UCS_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -40486,7 +40472,7 @@ static int test_UCS_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(ucs_control, "UCS_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(ucs_control, "UCS_CONTROL", "ucs", &ucs, count)
-        && (!count || !memcmp(&ucs, &ucs_control->ucs, count * sizeof(ucs_control->ucs)))
+        && (!count || !memcmp(ucs, ucs_control->ucs, count * sizeof(ucs_control->ucs)))
 )
       pass ("UCS_CONTROL.ucs [H*] * %d num_entries", count);
     else
@@ -41305,11 +41291,9 @@ static int test_VIEW_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(view_control, "VIEW_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(view_control, "VIEW_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &view_control->reactors, count * sizeof(view_control->reactors)))
-)
+    int count = view_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(view_control, "VIEW_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, view_control->reactors, count * sizeof(view_control->reactors))))
       pass ("VIEW_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -41321,7 +41305,7 @@ static int test_VIEW_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(view_control, "VIEW_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(view_control, "VIEW_CONTROL", "views", &views, count)
-        && (!count || !memcmp(&views, &view_control->views, count * sizeof(view_control->views)))
+        && (!count || !memcmp(views, view_control->views, count * sizeof(view_control->views)))
 )
       pass ("VIEW_CONTROL.views [H*] * %d num_entries", count);
     else
@@ -42898,11 +42882,9 @@ static int test_VPORT_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(vport_control, "VPORT_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(vport_control, "VPORT_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &vport_control->reactors, count * sizeof(vport_control->reactors)))
-)
+    int count = vport_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(vport_control, "VPORT_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, vport_control->reactors, count * sizeof(vport_control->reactors))))
       pass ("VPORT_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -42914,7 +42896,7 @@ static int test_VPORT_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(vport_control, "VPORT_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(vport_control, "VPORT_CONTROL", "vports", &vports, count)
-        && (!count || !memcmp(&vports, &vport_control->vports, count * sizeof(vport_control->vports)))
+        && (!count || !memcmp(vports, vport_control->vports, count * sizeof(vport_control->vports)))
 )
       pass ("VPORT_CONTROL.vports [H*] * %d num_entries", count);
     else
@@ -43000,11 +42982,9 @@ static int test_VPORT_ENTITY_CONTROL (const Dwg_Object *obj)
   }
   {
     BITCODE_H* reactors;
-    int count = 0;
-    if (dwg_dynapi_entity_value(vport_entity_control, "VPORT_ENTITY_CONTROL", "num_reactors", &count, NULL) &&
-        dwg_dynapi_entity_values(vport_entity_control, "VPORT_ENTITY_CONTROL", "reactors", &reactors, count)
-        && (!count || !memcmp(&reactors, &vport_entity_control->reactors, count * sizeof(vport_entity_control->reactors)))
-)
+    int count = vport_entity_control->parent->num_reactors;
+    if (dwg_dynapi_entity_values(vport_entity_control, "VPORT_ENTITY_CONTROL", "reactors", &reactors, count)
+        && (!count || !memcmp(reactors, vport_entity_control->reactors, count * sizeof(vport_entity_control->reactors))))
       pass ("VPORT_ENTITY_CONTROL.reactors [H*] * %d num_reactors", count);
     else
       {
@@ -43016,7 +42996,7 @@ static int test_VPORT_ENTITY_CONTROL (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(vport_entity_control, "VPORT_ENTITY_CONTROL", "num_entries", &count, NULL) &&
         dwg_dynapi_entity_values(vport_entity_control, "VPORT_ENTITY_CONTROL", "vport_entity_headers", &vport_entity_headers, count)
-        && (!count || !memcmp(&vport_entity_headers, &vport_entity_control->vport_entity_headers, count * sizeof(vport_entity_control->vport_entity_headers)))
+        && (!count || !memcmp(vport_entity_headers, vport_entity_control->vport_entity_headers, count * sizeof(vport_entity_control->vport_entity_headers)))
 )
       pass ("VPORT_ENTITY_CONTROL.vport_entity_headers [H*] * %d num_entries", count);
     else
@@ -43347,7 +43327,7 @@ static int test_XRECORD (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(xrecord, "XRECORD", "num_objid_handles", &count, NULL) &&
         dwg_dynapi_entity_values(xrecord, "XRECORD", "objid_handles", &objid_handles, count)
-        && (!count || !memcmp(&objid_handles, &xrecord->objid_handles, count * sizeof(xrecord->objid_handles)))
+        && (!count || !memcmp(objid_handles, xrecord->objid_handles, count * sizeof(xrecord->objid_handles)))
 )
       pass ("XRECORD.objid_handles [H*] * %d num_objid_handles", count);
     else
@@ -43380,7 +43360,7 @@ static int test_XRECORD (const Dwg_Object *obj)
     int count = 0;
     if (dwg_dynapi_entity_value(xrecord, "XRECORD", "num_xdata", &count, NULL) &&
         dwg_dynapi_entity_values(xrecord, "XRECORD", "xdata", &xdata, count)
-        && (!count || !memcmp(&xdata, &xrecord->xdata, count * sizeof(xrecord->xdata)))
+        && (!count || !memcmp(xdata, xrecord->xdata, count * sizeof(xrecord->xdata)))
 )
       pass ("XRECORD.xdata [Dwg_Resbuf*] * %d num_xdata", count);
     else

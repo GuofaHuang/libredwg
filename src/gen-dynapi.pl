@@ -492,7 +492,22 @@ EOF
       my $countfield = exists $countfield{$var} ? $countfield{$var} : "num_$var";
       $countfield = 'num_dashes' if $name eq 'LTYPE' and $var eq 'styles';
       my $count = 1;
-      print $fh <<"EOF";
+      if ($var eq 'reactors' and $type eq 'BITCODE_H*') {
+        print $fh <<"EOF";
+  {
+    $type $var;
+    int count = $lname->parent->num_reactors;
+    if (dwg_dynapi_entity_values($lname, "$name", "$var", &$svar, count)
+        && (!count || !memcmp($svar, $lname->$svar, count * sizeof($lname->$svar))))
+      pass ("$name.$var [$stype] * %d $countfield", count);
+    else
+      {
+        fail ("$name.$var [$stype] * %d $countfield", count); error++;
+      }
+  }
+EOF
+      } else {
+        print $fh <<"EOF";
   {
     $type $var;
     int count = 0;
@@ -500,7 +515,7 @@ EOF
         dwg_dynapi_entity_values($lname, "$name", "$var", &$svar, count)
 EOF
         if ($type !~ /\*\*/) {
-          print $fh "        && (!count || !memcmp(&$svar, &$lname->$svar, count * sizeof($lname->$svar)))\n";
+          print $fh "        && (!count || !memcmp($svar, $lname->$svar, count * sizeof($lname->$svar)))\n";
         }
         print $fh ")\n";
         print $fh <<"EOF";
@@ -511,6 +526,7 @@ EOF
       }
   }
 EOF
+      } # reactors
     } else { # is_ptr
       print $fh <<"EOF";
   {
@@ -620,6 +636,7 @@ const struct _name_type_fields dwg_name_types[] = {
   @@enum DWG_OBJECT_TYPE@@
 };
 
+//#line 639 "gen-dynapi.pl"
 static int
 _name_inl_cmp (const void *restrict key, const void *restrict elem)
 {
@@ -748,6 +765,7 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
       }
     {
       const Dwg_DYNAPI_field* f = dwg_dynapi_entity_field(name, fieldname);
+      char **in;
       if (!f)
         {
           int loglevel;
@@ -756,7 +774,8 @@ dwg_dynapi_entity_values(void *restrict _obj, const char *restrict name,
           LOG_ERROR("%s: Invalid %s field %s", __FUNCTION__, name, fieldname);
           return false;
         }
-      memcpy(out, &((char*)_obj)[f->offset], count * f->size);
+      // just copy the array ptr
+      memcpy(out, &((char*)_obj)[f->offset], f->size);
       return true;
     }
   }
@@ -891,7 +910,10 @@ dwg_dynapi_entity_set_values(void *restrict _obj, const char *restrict name,
                     count, fieldname);
           return false;
         }
-      memcpy(&((char*)_obj)[f->offset], value, count * f->size);
+      if (value != NULL)
+        memcpy(&((char*)_obj)[f->offset], value, f->size);
+      else
+        memset(&((char*)_obj)[f->offset], 0, sizeof(void*));
       return true;
     }
   }
