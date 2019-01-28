@@ -678,6 +678,60 @@ dwg_get_OBJECT(obj_evaluation_graph, GRAPH)
 //dwg_get_OBJECT(obj_tablestyle, TABLESTYLE)
 //dwg_get_OBJECT(obj_xrefpanelobject, XREFPANELOBJECT)
 
+
+/********************************************************************
+*                FUNCTIONS TYPE SPECIFIC                            *
+*********************************************************************/
+
+/* Should we accept dwg and entities? or add dwg_header_get_TYPE */
+EXPORT Dwg_Bitcode_2RD*
+dwg_ent_get_2DPOINT(const void *restrict _obj,
+                    const char *restrict fieldname)
+{
+#ifndef HAVE_NONNULL  
+  if (_obj && fieldname)
+#endif
+    {
+      Dwg_Bitcode_2RD *point;
+      Dwg_DYNAPI_field field;
+      int error;
+      const Dwg_Object* obj = dwg_obj_generic_to_object(_obj, &error);
+      if (!obj || !obj->name)
+        return NULL;
+      point = calloc(1, sizeof(Dwg_Bitcode_2RD));
+      if (dwg_dynapi_entity_value((void*)_obj, obj->name, fieldname, &point, &field))
+        {
+          if (!strcmp(field.type, "2RD") ||
+              !strcmp(field.type, "2BD") ||
+              !strcmp(field.type, "2DPOINT"))
+            {
+              return point;
+            }
+          else
+            {
+              LOG_ERROR("%s has type %s, which is not a 2DPOINT", fieldname, field.type)
+              return NULL;
+            }
+        }
+      else
+        {
+          return NULL;
+        }
+    }
+#ifndef HAVE_NONNULL  
+  else
+    return NULL;
+#endif  
+}
+
+EXPORT bool
+dwg_ent_set_2DPOINT(void *restrict obj,
+                    const char *restrict fieldname,
+                    const Dwg_Bitcode_2RD *point)
+{
+}
+
+  
 /*******************************************************************
  *                    FUNCTIONS FOR CIRCLE ENTITY                    *
  ********************************************************************/

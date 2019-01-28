@@ -120,7 +120,7 @@ dwg_dynapi_common_value(void *restrict _obj, const char *restrict fieldname,
     A non-malloc'ed struct is set by content.
  */
 EXPORT bool
-dwg_dynapi_header_set_value(const Dwg_Data *restrict dwg, const char *restrict fieldname,
+dwg_dynapi_header_set_value(Dwg_Data *restrict dwg, const char *restrict fieldname,
                             const void *restrict value);
 
 /** Sets the ENTITY.fieldname to a value.
@@ -863,7 +863,7 @@ EXPORT void dwg_api_init_version(Dwg_Data *dwg);
 
 /********************************************************************
 *                FUNCTIONS START HERE ENTITY SPECIFIC               *
-********************************************************************/
+*********************************************************************/
 
 EXPORT bool
 dwg_get_HEADER(const Dwg_Data *restrict dwg,
@@ -1042,9 +1042,26 @@ dwg_get_OBJECT_DECL(obj_evaluation_graph, GRAPH)
 //dwg_get_OBJECT_DECL(obj_tablestyle, TABLESTYLE)
 //dwg_get_OBJECT_DECL(obj_xrefpanelobject, XREFPANELOBJECT)
 
+
+/********************************************************************
+*                FUNCTIONS TYPE SPECIFIC                            *
+*********************************************************************/
+
+/* Should we accept dwg and entities? or add dwg_header_get_TYPE */
+EXPORT Dwg_Bitcode_2RD*
+dwg_ent_get_2DPOINT(const void *restrict obj,
+                    const char *restrict fieldname)
+  __nonnull ((1, 2));
+EXPORT bool
+dwg_ent_set_2DPOINT(void *restrict obj,
+                    const char *restrict fieldname,
+                    const Dwg_Bitcode_2RD *point)
+  __nonnull ((1, 2, 3));
+
+  
 /********************************************************************
 *                    FUNCTIONS FOR CIRCLE ENTITY                    *
-********************************************************************/
+*********************************************************************/
 
 // Get/Set the center point of a _dwg_entity_CIRCLE::
 EXPORT void

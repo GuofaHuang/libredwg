@@ -61,7 +61,7 @@ dwg_dynapi_common_value(void *restrict _obj, const char *restrict fieldname,
                         void *restrict out, Dwg_DYNAPI_field *restrict fp);
 
 EXPORT bool
-dwg_dynapi_header_set_value(const Dwg_Data *restrict dwg, const char *restrict fieldname,
+dwg_dynapi_header_set_value(Dwg_Data *restrict dwg, const char *restrict fieldname,
                             const void *restrict value);
 EXPORT bool
 dwg_dynapi_entity_set_value(void *restrict entity, const char *restrict dxfname,
